@@ -8,4 +8,10 @@ describe('AppComponent', () => {
         appComponent = new AppComponent();
     });
 
+    describe("AppComponent", function() {
+        it("has a name property", function() {
+            expect(appComponent.name).toBe("My First Angular 2 App");
+        });
+    });
+
 });

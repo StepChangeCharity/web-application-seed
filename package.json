@@ -4,8 +4,14 @@
   "description": "StepChange Angular2 Application Seed",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run serve\" ",
-    "serve": "lite-server"
+    "start": "npm run serve",
+    "pretest": "npm run tsc", 
+    "postinstall": "npm run typings",   
+    "test": "node_modules/.bin/karma start karma.conf.js",
+    "serve": "lite-server",    
+    "typings": "node_modules/.bin/typings install",
+    "watch": "tsc --watch",
+    "tsc": "node_modules/.bin/tsc"
   },
   "repository": {
     "type": "git",
@@ -25,8 +31,15 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "concurrently": "^2.1.0",
+    "es6-shim": "^0.35.1",
+
+    "jasmine": "2.3.2",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-cli": "^0.0.4",
+    "karma-jasmine": "^0.3.6",
     "lite-server": "^2.2.0",
-    "typescript": "^1.8.10"
+    "typescript": "^1.8.10",
+    "typings": "^1.1.0"
   }
 }
