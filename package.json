@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run serve",
-    "pretest": "npm run tsc", 
-    "postinstall": "npm run typings",   
+    "pretest": "npm run clean && npm run tsc",
+    "postinstall": "npm run typings",
     "test": "node_modules/.bin/karma start karma.conf.js",
-    "serve": "lite-server",    
+    "serve": "lite-server",
     "typings": "node_modules/.bin/typings install",
     "watch": "tsc --watch",
-    "tsc": "node_modules/.bin/tsc --outDir build"
+    "tsc": "node_modules/.bin/tsc --outDir build",
+    "clean": "rimraf build"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "karma-chrome-launcher": "^0.2.1",
     "karma-jasmine": "^0.3.6",
     "lite-server": "^2.2.0",
+    "rimraf": "^2.5.2",
     "typescript": "^1.8.10",
     "typings": "^1.1.0"
   }
