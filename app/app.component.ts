@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent { 
   
-  public name: string = 'property';
+  public name: string = 'My First Angular 2 App';
 }

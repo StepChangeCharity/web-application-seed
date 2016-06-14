@@ -11,7 +11,7 @@
     "serve": "lite-server",    
     "typings": "node_modules/.bin/typings install",
     "watch": "tsc --watch",
-    "tsc": "node_modules/.bin/tsc"
+    "tsc": "node_modules/.bin/tsc --outDir build"
   },
   "repository": {
     "type": "git",
@@ -31,12 +31,9 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "es6-shim": "^0.35.1",
-
     "jasmine": "2.3.2",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.1",
-    "karma-cli": "^0.0.4",
     "karma-jasmine": "^0.3.6",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",

@@ -6,12 +6,13 @@ System.config({
 	map : {
     'rxjs': '/node_modules/rxjs',
     '@angular': '/node_modules/@angular',
-		'typescript': '/node_modules/typescript/lib/typescript.js'
+		'typescript': '/node_modules/typescript/lib/typescript.js',
+    'app': 'build'
 	},
   packages: {
     'app': {
       main: 'main',
-      defaultExtension: 'ts'
+      defaultExtension: 'js'
     },
     '@angular/core': {
       main: 'index.js',
