@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'my-app',
-	template: '<h1>My First Angular 2 App</h1>'
+	selector: 'fcc-app',
+	template: '<h1>{{name}}</h1>'
 })
 export class AppComponent {
-	public name: string = 'My First Angular 2 App';
+	public name: string = 'My First Angular 2 App!';
 }
