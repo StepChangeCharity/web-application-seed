@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run serve",
-    "pretest": "npm run clean && npm run tsc",
+    "clean": "node_modules/.bin/rimraf build",
+    "build": "npm run tsc && npm run tslint",
+    "pretest": "npm run clean && npm run build",
     "postinstall": "npm run typings",
     "test": "node_modules/.bin/karma start karma.conf.js",
     "serve": "lite-server",
     "typings": "node_modules/.bin/typings install",
     "watch": "tsc --watch",
     "tsc": "node_modules/.bin/tsc --outDir build",
-    "clean": "node_modules/.bin/rimraf build"
+    "tslint": "node_modules/.bin/tslint -c tslint.json app/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "karma": "^0.13.22",
     "lite-server": "^2.2.0",
     "rimraf": "^2.5.2",
+    "tslint": "^3.11.0",
     "typescript": "^1.8.10",
     "typings": "^1.1.0"
   }
