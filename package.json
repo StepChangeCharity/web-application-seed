@@ -14,7 +14,13 @@
     "typings": "node_modules/.bin/typings install",
     "watch": "node_modules/.bin/tsc --outDir build --watch",
     "tsc": "node_modules/.bin/tsc --outDir build",
-    "tslint": "node_modules/.bin/tslint -c tslint.json app/**/*.ts"
+    "tslint": "node_modules/.bin/tslint -c tslint.json app/**/*.ts",
+    "protractor": "protractor",
+    "webdriver-manager": "webdriver-manager",
+    "webdriver:update": "npm run webdriver-manager update",
+    "webdriver:start": "npm run webdriver-manager start",
+    "pree2e": "npm run webdriver:update -- --standalone",
+     "e2e": "npm run protractor"
   },
   "repository": {
     "type": "git",
@@ -38,6 +44,7 @@
     "jasmine": "2.3.2",
     "karma": "^0.13.22",
     "lite-server": "^2.2.0",
+    "protractor": "^3.3.0",
     "rimraf": "^2.5.2",
     "tslint": "^3.11.0",
     "typescript": "^1.8.10",
