@@ -12,7 +12,7 @@
     "typings": "node_modules/.bin/typings install",
     "watch": "tsc --watch",
     "tsc": "node_modules/.bin/tsc --outDir build",
-    "clean": "rimraf build"
+    "clean": "node_modules/.bin/rimraf build"
   },
   "repository": {
     "type": "git",
@@ -34,8 +34,6 @@
   "devDependencies": {
     "jasmine": "2.3.2",
     "karma": "^0.13.22",
-    "karma-chrome-launcher": "^0.2.1",
-    "karma-jasmine": "^0.3.6",
     "lite-server": "^2.2.0",
     "rimraf": "^2.5.2",
     "typescript": "^1.8.10",
