@@ -1,61 +1,65 @@
-// http://karma-runner.github.io/0.13/config/configuration-file.html
+var path = require('path');
+
+var webpackConfig = require('./webpack.config');
 
 module.exports = function (config) {
-    var configuration = {
-        basePath: './',
+  var _config = {
 
-        frameworks: ['jasmine'],
-	    browsers: ['Chrome'],
+    // base path that will be used to resolve all patterns (eg. files, exclude)
+    basePath: '',
 
-        reporters: ['progress', 'dots'],
+    // frameworks to use
+    // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+    frameworks: ['jasmine'],
 
-        files: [
-            // Polyfills.
-            // TODO: This could be important in browsers such as IE that lack support
-            //'node_modules/core-js/core-js.js',
+    // list of files / patterns to load in the browser
+    files: [
+      { pattern: './karma-test-shim.js', watched: false }
+    ],
 
-            'node_modules/reflect-metadata/Reflect.js',
+    // list of files to exclude
+    exclude: [],
 
-            // System.js for module loading
-            'node_modules/systemjs/dist/system-polyfills.js',
-            'node_modules/systemjs/dist/system.src.js',
+    // preprocess matching files before serving them to the browser
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    preprocessors: {
+      './karma-shim.js': ['webpack', 'sourcemap']
+    },
 
-            // Zone.js dependencies
-            'node_modules/zone.js/dist/zone.js',
-            'node_modules/zone.js/dist/jasmine-patch.js',
-            'node_modules/zone.js/dist/async-test.js',
-            'node_modules/zone.js/dist/fake-async-test.js',
+    webpack: webpackConfig,
 
-            // RxJs.
-            { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false },
-            { pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false },
+    webpackMiddleware: {
+      // webpack-dev-middleware configuration
+      // i. e.
+      stats: 'errors-only'
+    },
 
-            { pattern: 'karma-test-shim.js', included: true, watched: true },
+    webpackServer: {
+      noInfo: true // please don't spam the console when running in karma!
+    },
 
-            // paths loaded via module imports
-            // Angular itself
-            { pattern: 'node_modules/@angular/**/*.js', included: false, watched: true },
-            { pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: true },
+    // web server port
+    port: 9876,
 
-            { pattern: 'build/**/*.js', included: false, watched: true },
+    // enable / disable colors in the output (reporters and logs)
+    colors: true,
 
-            // paths to support debugging with source maps in dev tools
-            // { pattern: 'app/**/*.ts', included: false, watched: false },
-            // { pattern: 'build/**/*.js.map', included: false, watched: false }            
-        ],
+    // level of logging
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    logLevel: config.LOG_INFO,
 
-        // proxied base paths
-        proxies: {
-            // required for component assets fetched by Angular's compiler
-            "/app/": "/base/build/"
-        },
+    // enable / disable watching file and executing tests whenever any file changes
+    autoWatch: false,
 
-        port: 9876,
-        colors: true,
-        logLevel: config.LOG_INFO,
-        autoWatch: true,
-        singleRun: true,
-    };
+    // start these browsers
+    // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
+    browsers: ['Chrome'], // you can also use Chrome
 
-    config.set(configuration);
-}
+    // Continuous Integration mode
+    // if true, Karma captures browsers, runs the tests and exits
+    singleRun: true
+  };
+
+  config.set(_config);
+
+};

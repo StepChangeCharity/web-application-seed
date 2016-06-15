@@ -2,6 +2,7 @@ var webpack = require("webpack");
 
 module.exports = {
 	entry: {
+    polyfills: './app/polyfills',
 		vendor: './app/vendor',
 		app: './app/main',
 	},
