@@ -4,9 +4,7 @@
   "description": "StepChange Angular2 Application Seed",
   "main": "index.js",
   "scripts": {
-    "start": "npm run serve",
     "clean": "node_modules/.bin/rimraf build",
-    "build": "npm run tsc && npm run tslint",
     "pretest": "npm run clean && npm run build",
     "postinstall": "npm run typings",
     "test": "node_modules/.bin/karma start karma.conf.js",
@@ -20,7 +18,9 @@
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver:start": "npm run webdriver-manager start",
     "pree2e": "npm run webdriver:update -- --standalone",
-     "e2e": "npm run protractor"
+    "e2e": "npm run protractor",
+    "build": "webpack",
+    "start": "webpack-dev-server --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "@angular/core": "^2.0.0-rc.1",
     "@angular/platform-browser": "2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
+    "core-js": "^2.4.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "^0.19.29",
@@ -46,8 +47,11 @@
     "lite-server": "^2.2.0",
     "protractor": "^3.3.0",
     "rimraf": "^2.5.2",
+    "ts-loader": "^0.8.2",
     "tslint": "^3.11.0",
     "typescript": "^1.8.10",
-    "typings": "^1.1.0"
+    "typings": "^1.1.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
