@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
 	template: '<h1>{{name}}</h1>'
 })
 export class AppComponent {
-	public name: string = 'My First Angular 2 App!';
+	public name: string = 'My First Angular 2 App';
 }

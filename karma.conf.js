@@ -12,6 +12,13 @@ module.exports = function (config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
+    plugins: [
+        'karma-webpack',
+        'karma-sourcemap-loader',
+        'karma-jasmine',
+        'karma-chrome-launcher'
+    ],
+
     // list of files / patterns to load in the browser
     files: [
       { pattern: './karma-test-shim.js', watched: false }
@@ -23,7 +30,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './karma-shim.js': ['webpack', 'sourcemap']
+      './karma-test-shim.js': ['webpack', 'sourcemap']
     },
 
     webpack: webpackConfig,
