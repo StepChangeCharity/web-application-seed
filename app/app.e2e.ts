@@ -6,15 +6,10 @@ describe('AppComponent', function () {
 		browser.get('/');
 	});
 
-	// it('should have headerzzz', function() {
-
-	// 	let header = element(by.css('h1'));
-	// 	expect(header).toContain('My First Angular 2 App');
-	// });
-
 	it('should have a title', () => {
     let subject = browser.getTitle();
-    let result = 'Boobs';
+    let result = 'StepChange Angular2 Application Seed';
     expect(subject).toEqual(result);
   });
+	
 })
