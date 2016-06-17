@@ -23,14 +23,5 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  },
-  plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
-
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    })
-  ]	
+  }
 }

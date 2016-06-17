@@ -8,11 +8,8 @@
     "clean-install": "npm run clean && npm install",
     "install-globals": "npm install rimraf protractor webdriver-manager -g",
     "postinstall": "npm run install-globals && npm run typings",
-    "test": "node_modules/.bin/karma start karma.conf.js",
-    "typings": "node_modules/.bin/typings install",
-    "watch": "node_modules/.bin/tsc --outDir build --watch",
-    "tsc": "node_modules/.bin/tsc --outDir build",
-    "tslint": "node_modules/.bin/tslint -c tslint.json app/**/*.ts",
+    "test": "karma start config/karma.conf.js",
+    "typings": "typings install",
     "protractor": "protractor",
     "webdriver-manager": "webdriver-manager",
     "webdriver:update": "npm run webdriver-manager update",
@@ -20,7 +17,7 @@
     "pree2e": "npm run webdriver:update -- --standalone",
     "e2e": "npm run protractor",
     "build": "webpack",
-    "start": "webpack-dev-server --progress --colors --watch"
+    "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -56,6 +53,7 @@
     "typescript": "^1.8.10",
     "typings": "^1.1.0",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
   }
 }
