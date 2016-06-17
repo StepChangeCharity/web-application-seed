@@ -16,8 +16,8 @@
     "webdriver:start": "npm run webdriver-manager start",
     "pree2e": "npm run webdriver:update -- --standalone",
     "e2e": "npm run protractor",
-    "build": "webpack",
-    "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --watch"
+    "build": "webpack --config config/webpack.prod.js",
+    "start": "webpack-dev-server --config config/webpack.prod.js --progress --colors --watch"
   },
   "repository": {
     "type": "git",

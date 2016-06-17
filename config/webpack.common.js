@@ -9,7 +9,7 @@ module.exports = {
 	},
 	output: {
 		path: __dirname,
-		filename: 'dist/[name].bundle.js'
+		filename: '../dist/[name].bundle.js'
 	},
   resolve: {
     extensions: ['', '.js', '.ts']
