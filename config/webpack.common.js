@@ -17,6 +17,10 @@ module.exports = {
         test: /\.ts/,
         loaders: ['ts-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        loaders: ['to-string-loader', 'css-loader']
       }
     ]
   },

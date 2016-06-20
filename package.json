@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "codelyzer": "0.0.23",
+    "css-loader": "^0.23.1",
     "html-webpack-plugin": "^2.21.0",
     "jasmine": "2.3.2",
     "karma": "^0.13.22",
@@ -50,6 +51,8 @@
     "karma-webpack": "^1.7.0",
     "protractor": "^3.3.0",
     "rimraf": "^2.5.2",
+    "style-loader": "^0.13.1",
+    "to-string-loader": "^1.1.4",
     "ts-loader": "^0.8.2",
     "ts-node": "^0.9.1",
     "tslint": "^3.11.0",
