@@ -9,7 +9,14 @@ describe('AppComponent', function () {
 	it('should have a title', () => {
     let subject = browser.getTitle();
     let result = 'StepChange Angular 2 Application Seed';
+
     expect(subject).toEqual(result);
   });
+
+	it('should have a logo', () => {
+		let src = element(by.tagName('img')).getAttribute("src");
+		
+		expect(src).toContain('logo.jpg');
+	});
 	
 })

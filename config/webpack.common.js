@@ -1,4 +1,5 @@
 var webpack = require("webpack");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -27,6 +28,12 @@ module.exports = {
       mangle: { screw_ie8 : true },
       compress: { screw_ie8: true },
       comments: false
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: './src/assets',
+        to: './assets'
+      }
+    ])
   ]	  
 }
