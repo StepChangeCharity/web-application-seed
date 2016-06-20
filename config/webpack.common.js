@@ -19,5 +19,14 @@ module.exports = {
         exclude: /node_modules/
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      sourcemap: true, 
+      beautify: false,
+      mangle: { screw_ie8 : true },
+      compress: { screw_ie8: true },
+      comments: false
+    })
+  ]	  
 }
