@@ -7,10 +7,6 @@ module.exports = {
 		vendor: './src/app/vendor',
 		app: './src/app/main'
 	},
-	output: {
-		path: 'dist',
-		filename: '[name].bundle.js'
-	},
   resolve: {
     extensions: ['', '.js', '.ts']
   },

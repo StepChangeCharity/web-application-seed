@@ -7,8 +7,8 @@ var commonConfig = require('./webpack.common.js')
 module.exports = webpackMerge(commonConfig, {
 	output: {
 		path: path.join(__dirname, '../dist'),
-		filename: '[name].bundle.[chunkhash].js'
-	},    
+		filename: '[name].bundle.js'
+	},  
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
