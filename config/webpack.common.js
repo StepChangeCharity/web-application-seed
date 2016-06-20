@@ -3,13 +3,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
-    polyfills: './app/polyfills',
-		vendor: './app/vendor',
-		app: './app/main',
+    polyfills: './src/app/polyfills',
+		vendor: './src/app/vendor',
+		app: './src/app/main'
 	},
 	output: {
-		path: __dirname,
-		filename: '../dist/[name].bundle.js'
+		path: 'dist',
+		filename: '[name].bundle.js'
 	},
   resolve: {
     extensions: ['', '.js', '.ts']

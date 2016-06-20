@@ -4,8 +4,9 @@
   "description": "StepChange Angular2 Application Seed",
   "main": "index.html",
   "scripts": {
-    "clean": "rimraf dist node_modules",
-    "clean-install": "npm run clean && npm install",
+    "clean-build": "rimraf dist",
+    "clean-dependencies": "rimraf node_modules typings",
+    "clean-install": "npm run clean-dependencies && npm install",
     "install-globals": "npm install rimraf protractor webdriver-manager -g",
     "postinstall": "npm run install-globals && npm run typings",
     "test": "karma start config/karma.conf.js",
@@ -16,8 +17,8 @@
     "webdriver:start": "npm run webdriver-manager start",
     "pree2e": "npm run webdriver:update -- --standalone",
     "e2e": "npm run protractor",
-    "build": "webpack --config config/webpack.prod.js",
-    "start": "webpack-dev-server --config config/webpack.prod.js --progress --colors --watch"
+    "build": "npm run clean-build && webpack --config config/webpack.prod.js",
+    "start": "webpack-dev-server --config config/webpack.prod.js --progress --colors --watch --inline"
   },
   "repository": {
     "type": "git",
