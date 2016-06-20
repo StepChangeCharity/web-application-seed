@@ -4,23 +4,22 @@
   "description": "StepChange Angular2 Application Seed",
   "main": "index.html",
   "scripts": {
-    "clean": "rimraf dist node_modules",
-    "clean-install": "npm run clean && npm install",
+    "clean-build": "rimraf dist",
+    "clean-dependencies": "rimraf node_modules typings",
+    "clean-install": "npm run clean-dependencies && npm install",
     "install-globals": "npm install rimraf protractor webdriver-manager -g",
     "postinstall": "npm run install-globals && npm run typings",
-    "test": "node_modules/.bin/karma start karma.conf.js",
-    "typings": "node_modules/.bin/typings install",
-    "watch": "node_modules/.bin/tsc --outDir build --watch",
-    "tsc": "node_modules/.bin/tsc --outDir build",
-    "tslint": "node_modules/.bin/tslint -c tslint.json app/**/*.ts",
-    "protractor": "protractor",
+    "test": "karma start config/karma.conf.js",
+    "typings": "typings install",
+    "protractor": "protractor config/protractor.conf.js",
     "webdriver-manager": "webdriver-manager",
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver:start": "npm run webdriver-manager start",
     "pree2e": "npm run webdriver:update -- --standalone",
     "e2e": "npm run protractor",
-    "build": "webpack",
-    "start": "webpack-dev-server --progress --colors --watch"
+    "build": "npm run clean-build && webpack --config config/webpack.prod.js",
+    "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --watch --inline",
+    "start:prod": "webpack-dev-server --config config/webpack.prod.js --progress --colors --watch --inline"
   },
   "repository": {
     "type": "git",
@@ -52,10 +51,12 @@
     "protractor": "^3.3.0",
     "rimraf": "^2.5.2",
     "ts-loader": "^0.8.2",
+    "ts-node": "^0.9.1",
     "tslint": "^3.11.0",
     "typescript": "^1.8.10",
     "typings": "^1.1.0",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.14.0"
   }
 }

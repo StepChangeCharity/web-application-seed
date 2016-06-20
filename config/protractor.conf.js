@@ -1,8 +1,10 @@
+require('ts-node/register');
+
 exports.config = {
 	framework: 'jasmine',
 	//seleniumAddress: 'http://localhost:4444/wd/hub',
-	baseUrl: 'http://localhost:3000/',
-	specs: ['./build/**/*.e2e.js'],
+	baseUrl: 'http://localhost:8080/',
+	specs: ['../src/app/**/*.e2e.ts'],
 	directConnect: true,
 
 	/**

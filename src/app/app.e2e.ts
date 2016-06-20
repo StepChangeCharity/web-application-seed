@@ -8,7 +8,7 @@ describe('AppComponent', function () {
 
 	it('should have a title', () => {
     let subject = browser.getTitle();
-    let result = 'StepChange Angular2 Application Seed';
+    let result = 'StepChange Angular 2 Application Seed';
     expect(subject).toEqual(result);
   });
 	

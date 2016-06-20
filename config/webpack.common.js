@@ -3,13 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: {
-    polyfills: './app/polyfills',
-		vendor: './app/vendor',
-		app: './app/main',
-	},
-	output: {
-		path: __dirname,
-		filename: 'dist/[name].bundle.js'
+    polyfills: './src/app/polyfills',
+		vendor: './src/app/vendor',
+		app: './src/app/main'
 	},
   resolve: {
     extensions: ['', '.js', '.ts']
@@ -25,12 +21,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
-
-    new HtmlWebpackPlugin({
-      template: 'index.html'
+    new webpack.optimize.UglifyJsPlugin({
+      sourcemap: true, 
+      beautify: false,
+      mangle: { screw_ie8 : true },
+      compress: { screw_ie8: true },
+      comments: false
     })
-  ]	
+  ]	  
 }
