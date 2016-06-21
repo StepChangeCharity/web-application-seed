@@ -23,13 +23,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourcemap: true,
-      beautify: false,
-      mangle: { screw_ie8: true },
-      compress: { screw_ie8: true, warnings: false },
-      comments: false
-    }),
     new WebpackNotifierPlugin({ 
       title: 'Web Application Seed',
       excludeWarnings: true,
