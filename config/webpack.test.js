@@ -7,4 +7,12 @@ module.exports = webpackMerge(commonConfig, {
 		path: path.join(__dirname, '../dist'),
 		filename: '[name].bundle.js'
 	},
+	module: {
+		loaders: [
+			{
+				test: /\.css$/,
+				loaders: ['to-string-loader', 'css-loader']
+			}
+		]
+	}
 });
