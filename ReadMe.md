@@ -29,6 +29,9 @@ Go to http://localhost:8080 in your browser.
 	* [Machine Dependencies](#machine-dependencies)
 	* [Creating The Initial Application](#creating-the-initial-application)
 	* [Developing](#developing)
+	* [Testing](#testing)
+	* [NPM Scripts](#npm-scripts)
+	* [Dependencies Explained](#dependencies-explained)
 
 # High Level Features
 
@@ -79,7 +82,7 @@ git push origin master
 
 For ease of workflow during developing npm `scripts` have been utilised in order to encapsulate common and repetetive tasks.
 
-In general only four scripts will be called directly whilst developing; `install`, `start`, `test` and `e2e`.  These are explained in more detail in the "Scripts" section. 
+In general only four scripts will be called directly whilst developing; `install`, `start`, `test` and `e2e`.  These are explained in more detail in the [NPM Scripts](#npm-scripts) section. 
 
 In order to start developing for the first time you need to do the following from the command line in your application folder:
 
@@ -91,10 +94,14 @@ npm install
 npm start
 ```
 
-Once `start` has been called a development server is spun up which allows you to browse the application in its current state.  To do this visit http://localhost:8080 in your browser.
+Once `npm start` has been called a development server is spun up which allows you to view the application in its current state.  To do this visit http://localhost:8080 in your browser.
 
 The development server is created from the `webpack-dev-server` package and creates the files to serve in memory based on the Webpack configuration that it is passed. For more information see the "Dependencies Explained" section. 
 
-Your source files can be debugged through the browser in the normal way.  In the case of Chrome hit `F12` to launch the debugger, in the `Sources` tab expand the `webpack://` section and the the `.` folder.  Here you will find your source files to which breakpoints can be attached.
+By default the `npm start` command serves the development configuration (unoptimised) if you wish to develop against the production version then use `npm start:prod` instead.
 
-The development server will also refresh the content of your application whenever you make a change.
+Your source files can be debugged through the browser in the normal way.  In the case of Chrome hit `F12` to launch the debugger, in the `'Sources'` tab expand the `'webpack://'` section and the the `'.'` folder.  Here you will find your source files to which breakpoints can be attached.
+
+The development server will also refresh the content of your application whenever you make a change and a notifier has been created which alerts you in the Windows System Tray as to whether the build was subsequently successful (saving you monitoring the console window).
+
+## NPM Scripts
