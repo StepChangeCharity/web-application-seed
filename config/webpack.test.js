@@ -1,10 +1,10 @@
-var path = require("path");
-var webpackMerge = require('webpack-merge');
-var commonConfig = require('./webpack.common.js')
+const webpackMerge = require('webpack-merge');
+const commonConfig = require('./webpack.common.js')
+const helpers = require('./helpers');
 
 module.exports = webpackMerge(commonConfig, {
 	output: {
-		path: path.join(__dirname, '../dist'),
+		path: helpers.root('dist'),
 		filename: '[name].bundle.js'
 	},
 	module: {

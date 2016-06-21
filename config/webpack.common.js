@@ -1,6 +1,6 @@
-var webpack = require('webpack');
-var helpers = require('./helpers');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const helpers = require('./helpers');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -34,7 +34,7 @@ module.exports = {
             compress: {screw_ie8: true, warnings: false},
             comments: false
         }),
-        new CopyWebpackPlugin([
+        new copyWebpackPlugin([
             {
                 from: './src/assets',
                 to: './assets'
