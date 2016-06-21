@@ -5,9 +5,9 @@
   "main": "index.html",
   "scripts": {
     "clean-build": "rimraf dist",
-    "clean-dependencies": "rimraf node_modules typings",
+    "clean-dependencies": "rimraf typings node_modules",
     "clean-install": "npm run clean-dependencies && npm install",
-    "install-globals": "npm install rimraf protractor webdriver-manager -g",
+    "install-globals": "npm install rimraf protractor webdriver-manager typings -g",
     "postinstall": "npm run install-globals && npm run typings",
     "test": "karma start config/karma.conf.js",
     "typings": "typings install",
@@ -15,7 +15,7 @@
     "webdriver-manager": "webdriver-manager",
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver:start": "npm run webdriver-manager start",
-    "pree2e": "npm run webdriver:update -- --standalone",
+    "pree2e": "npm run webdriver:update --standalone",
     "e2e": "npm run protractor",
     "build": "npm run clean-build && webpack --config config/webpack.prod.js",
     "start": "webpack-dev-server --config config/webpack.dev.js --progress --colors --watch --inline",
@@ -36,7 +36,6 @@
     "core-js": "^2.4.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
-    "systemjs": "^0.19.29",
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
@@ -57,6 +56,7 @@
     "typings": "^1.1.0",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
-    "webpack-merge": "^0.14.0"
+    "webpack-merge": "^0.14.0",
+    "webpack-notifier": "^1.3.0"
   }
 }
