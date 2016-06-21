@@ -10,7 +10,7 @@ import '../theme/styles.scss';
             <h2 class="sub-title">Subtitle</h2>
 		</div>
 	`,
-    styles: [require('./app.scss')]
+    styles: [ require('./app.scss') ]
 })
 export class AppComponent {
     public name:string = 'My First Angular 2 App';

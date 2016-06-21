@@ -5,9 +5,9 @@ const extractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 	entry: {
-		polyfills: './src/polyfills',
-		vendor: './src/vendor',
-		app: './src/main'
+		polyfills: './src/app/polyfills',
+		vendor: './src/app/vendor',
+		app: './src/app/main'
 	},
 	resolve: {
 		extensions: ['', '.js', '.ts']
@@ -22,7 +22,7 @@ module.exports = {
 			},
 			{
 				test: /\.scss$/,
-				exclude: helpers.root('src/app'),
+				include: helpers.root('src/theme'),
 				loader: extractTextPlugin.extract('style', 'css?postcss!sass')
 			},
 			{
@@ -46,6 +46,6 @@ module.exports = {
 				to: './assets'
 			}
 		]),
-		new extractTextPlugin('styles.css')
+		new extractTextPlugin('[name].bundle.[chunkhash].css')
 	]
 }
