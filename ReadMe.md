@@ -104,4 +104,90 @@ Your source files can be debugged through the browser in the normal way.  In the
 
 The development server will also refresh the content of your application whenever you make a change and a notifier has been created which alerts you in the Windows System Tray as to whether the build was subsequently successful (saving you monitoring the console window).
 
+## Testing
+
+> TODO
+
 ## NPM Scripts
+
+[npm scripting article](http://www.marcusoft.net/2015/08/pre-and-post-hooks-for-npm-scripting.html)
+
+### preinstall
+
+Called as part of the npm lifecycle hooks before `npm install` is executed.  Installs global dependencies `rimraf` and `webdriver-manager` so they are in your path.
+
+### install (`npm i` | `npm install` | `npm run install`)
+
+Inbuilt npm script action that installs the dependencies and devDependencies which are in their respective areas of the `package.json` file.
+
+### postinstall
+
+Called as part of the npm lifecycle hooks after `npm install` is executed.  Installs any typing definition files saved in the `typings.json` file.
+
+### start (`npm start` | `npm run start`)
+
+Inbuilt npm script action that fires up a Webpack development server in developer mode (unoptimised scripts).
+
+### start (`npm run start:prod`)
+
+Fires up a Webpack development server in production mode (optimised scripts).
+
+### clean:build (`npm run clean:build`)
+
+Deletes the `dist` build folder that is used to contain the production code for deployment.
+
+### clean:dependencies (`npm run clean:dependencies`)
+
+Deletes the `node_modules` and `typings` folders.
+
+### clean:install (`npm run clean:install`)
+
+Uses `clean:build` to wipe the project dependencies down and then reinstalls everything automatically.
+
+### test (`npm t` | `npm test` | `npm tst` | `npm run test`)
+
+Runs any `Jasmine` tests (*.spec.ts files) using `Karma` based on the supplied configuration file.
+
+### pree2e
+
+Called as part of the npm lifecycle hooks after `npm e2e` is executed.  Makes sure the Chrome Webdriver is up-to-date.
+
+### e2e
+
+Runs any `Jasmine` tests (*.e2e.ts files) using `Protractor` based on the supplied configuration file.
+
+### webpack:build (`npm run webpack:build`)
+
+Uses Webpack to create a production version of the code into the `dist` folder.
+
+### build (`npm run build`)
+
+Uses `clean:build` to delete the `dist` build folder and then `webpack:build` to call Webpack to create a production version of the code back into the `dist` folder.
+
+## Dependencies Explained
+
+### Angular Features
+
+**@angular/common** - The commonly needed services, pipes and directives provided by the Angular team.
+
+**@angular/compiler** - Angular's Template Compiler. It understand templates and can convert them to code that makes the app run and render.
+
+**@angular/core** - Critical runtime parts of the framework needed by every application. Includes all metadata decorators, Component, Directive, dependency injection, and the component lifecycle hooks.
+
+**@angular/platform-browser** - Everything DOM and browser related, especially the pieces that help render into DOM. This package also includes the bootstrapStatic method for bootstrapping applications for production builds that pre-compile templates offline.
+
+**@angular/platform-browser-dynamic** - Providers and a bootstrap method for applications that compile templates on the client. don’t use offline compilation.
+
+### Polyfills
+
+**core-js** - monkey patches the global context (window) with essential features of ES2015 (ES6). Developers may substitute an alternative polyfill that provides the same core APIs. This dependency should go away once these APIs are implemented by all supported ever-green browsers.
+
+**reflect-metadata** - a dependency shared between Angular and the TypeScript compiler. Developers should be able to update a TypeScript package without upgrading Angular, which is why this is a dependency of the application and not a dependency of Angular.
+
+**rxjs** - a polyfill for the [Observables specification](https://github.com/zenparsing/es-observable) currently before the TC39 committee that determines standards for the JavaScript language. Developers should be able to pick a preferred version of rxjs (within a compatible version range) without waiting for Angular updates.
+
+**zone.js** - a polyfill for the [Zone specification](https://gist.github.com/mhevery/63fdcdf7c65886051d55) currently before the TC39 committee that determines standards for the JavaScript language. Developers should be able to pick a preferred version of zone.js to use (within a compatible version range) without waiting for Angular updates.
+
+### Development Dependencies
+
+> TODO
