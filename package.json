@@ -41,8 +41,9 @@
   },
   "devDependencies": {
     "codelyzer": "0.0.23",
-    "css-loader": "^0.23.1",
     "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.21.0",
     "jasmine": "2.3.2",
     "karma": "^0.13.22",
