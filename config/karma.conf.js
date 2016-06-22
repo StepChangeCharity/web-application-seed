@@ -13,10 +13,12 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
 
     plugins: [
+        'karma-jasmine',
+        'karma-coverage',
         'karma-webpack',
         'karma-sourcemap-loader',
-        'karma-jasmine',
-        'karma-chrome-launcher'
+        'karma-chrome-launcher',
+        'karma-mocha-reporter',
     ],
 
     // list of files / patterns to load in the browser
@@ -30,7 +32,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './karma-test-shim.js': ['webpack', 'sourcemap']
+      './karma-test-shim.js': ['coverage', 'webpack', 'sourcemap']
     },
 
     webpack: webpackConfig,
@@ -41,9 +43,24 @@ module.exports = function (config) {
       stats: 'errors-only'
     },
 
+    // Creates JSON file for use by npm run coverage command
+    coverageReporter: {
+      reporters: [{
+        type: 'json',
+        dir: '../coverage',
+        subdir: 'json',
+        file: 'coverage-final.json'
+      }]
+    },
+
     webpackServer: {
       noInfo: true // please don't spam the console when running in karma!
     },
+
+    // test results reporter to use
+    // possible values: 'dots', 'progress', 'mocha'
+    // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+    reporters: ['mocha', 'coverage'],
 
     // web server port
     port: 9876,
