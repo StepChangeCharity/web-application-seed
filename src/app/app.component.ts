@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import '../theme/styles.scss';
 
 @Component({
     selector: 'fcc-app',

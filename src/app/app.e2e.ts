@@ -13,8 +13,8 @@ describe('AppComponent', function () {
     expect(subject).toEqual(result);
   });
 
-	it('should have a logo', () => {
-		let src = element(by.tagName('img')).getAttribute("src");
+	it('can load an image from the assets folder', () => {
+		let src = element(by.tagName('img')).getAttribute('src');
 		
 		expect(src).toContain('logo.jpg');
 	});

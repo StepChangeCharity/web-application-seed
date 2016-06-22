@@ -51,7 +51,7 @@ module.exports = {
 			title: 'Web Application Seed',
 			excludeWarnings: true,
 			alwaysNotify: true,
-			contentImage: helpers.root('notifier.png')
+			contentImage: helpers.root('config/notifier.png')
 		}),
 		new extractTextPlugin('[name].bundle.[chunkhash].css')
 	]
