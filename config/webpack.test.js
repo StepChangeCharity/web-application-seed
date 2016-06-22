@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var webpackNotifierPlugin = require('webpack-notifier');
 var helpers = require('./helpers');
 
@@ -46,12 +47,17 @@ module.exports = function() {
   };
 
   config.plugins = [
-	new webpackNotifierPlugin({
-	  title: 'Web Application Seed',
-	  excludeWarnings: true,
-	  alwaysNotify: true,
-	  contentImage: helpers.root('config/notifier.png')
-	})
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("testing")
+      }
+    }),
+	  new webpackNotifierPlugin({
+	    title: 'Web Application Seed',
+	    excludeWarnings: true,
+	    alwaysNotify: true,
+	    contentImage: helpers.root('config/notifier.png')
+	  })
   ]
 
   return config;
