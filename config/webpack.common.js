@@ -15,6 +15,12 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	module: {
+		preLoaders: [
+			{
+				test: /\.ts$/,
+				loader: "tslint"
+			}
+		],
 		loaders: [
 			{
 				test: /\.ts/,
