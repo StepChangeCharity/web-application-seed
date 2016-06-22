@@ -3,4 +3,8 @@ dist
 typings
 npm-debug.log
 .idea/
+<<<<<<< HEAD
 coverage
+=======
+automation
+>>>>>>> b8f799928dac12d7baa50cadb7093bfb85f9b3ce
