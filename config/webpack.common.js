@@ -1,7 +1,8 @@
-const webpack = require('webpack');
-const helpers = require('./helpers');
-const copyWebpackPlugin = require('copy-webpack-plugin');
-const extractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack');
+var helpers = require('./helpers');
+var copyWebpackPlugin = require('copy-webpack-plugin');
+var extractTextPlugin = require('extract-text-webpack-plugin');
+var webpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
 	entry: {
@@ -46,6 +47,12 @@ module.exports = {
 				to: './assets'
 			}
 		]),
+		new webpackNotifierPlugin({
+			title: 'Web Application Seed',
+			excludeWarnings: true,
+			alwaysNotify: true,
+			contentImage: helpers.root('notifier.png')
+		}),
 		new extractTextPlugin('[name].bundle.[chunkhash].css')
 	]
 }
