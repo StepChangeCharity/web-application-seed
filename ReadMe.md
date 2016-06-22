@@ -136,6 +136,10 @@ Fires up a Webpack development server in production mode (optimised scripts).
 
 Deletes the `dist` build folder that is used to contain the production code for deployment.
 
+### clean:automation (`npm run clean:automation`)
+
+Deletes the `automation` folder that is used to report on protractor results.
+
 ### clean:dependencies (`npm run clean:dependencies`)
 
 Deletes the `node_modules` and `typings` folders.
@@ -167,6 +171,10 @@ Uses `clean:build` to delete the `dist` build folder and then `webpack:build` to
 ### document (`npm run document`)
 
 Uses `groc` to generate inline documentation for the webpack configuration.
+
+### automation (`npm run automation`)
+
+Serves the protractor results automation folder using `http-server`.
 
 ## Dependencies Explained
 
