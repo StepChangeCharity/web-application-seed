@@ -23,10 +23,13 @@ module.exports = function() {
         loader: 'ts',
         exclude: [/\.(e2e)\.ts$/]
       },
-	  {
-		test: /\.scss$/,
-		loader: 'null'
-	  },
+      // support for .scss files
+      // use 'null' loader in test mode (https://github.com/webpack/null-loader)
+      // all css in src/style will be bundled in an external css file 
+	    {
+		    test: /\.scss$/,
+		    loader: 'null'
+	    },
     ],
     postLoaders: [
       {
