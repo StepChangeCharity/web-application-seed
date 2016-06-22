@@ -15,7 +15,8 @@
     "pree2e": "webdriver-manager update --standalone",
     "e2e": "protractor config/protractor.conf.js",
     "webpack:build": "webpack --config config/webpack.prod.js",
-    "build": "npm run clean:build && npm run webpack:build"
+    "build": "npm run clean:build && npm run webpack:build",
+		"document": "groc"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "groc": "^0.8.0",
     "html-webpack-plugin": "^2.21.0",
     "jasmine": "2.3.2",
     "karma": "^0.13.22",

@@ -164,6 +164,10 @@ Uses Webpack to create a production version of the code into the `dist` folder.
 
 Uses `clean:build` to delete the `dist` build folder and then `webpack:build` to call Webpack to create a production version of the code back into the `dist` folder.
 
+### document (`npm run document`)
+
+Uses `groc` to generate inline documentation for the webpack configuration.
+
 ## Dependencies Explained
 
 ### Angular Features
