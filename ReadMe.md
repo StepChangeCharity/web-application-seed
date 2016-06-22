@@ -154,15 +154,11 @@ Runs any `Jasmine` tests (*.spec.ts files) using `Karma` based on the supplied c
 
 ### posttest
 
-Called as part of the npm lifecycle hooks before `npm test` is executed. Generates both HTML and LCOV code coverage reports.
+Called as part of the npm lifecycle hooks after `npm test` is executed. Generates a HTML coverage report and opens it in the browser.
 
 ### remaphtml
 
 Called by `posttest`. Uses the remap-istanbul package to generate a HTML code coverage report in the ./coverage folder from the JSON file created during Karma execution. 
-
-### remaplcov
-
-Called by `posttest`. Uses the remap-istanbul package to generate a LCOV code coverage report in the ./coverage folder from the JSON file created during Karma execution. 
 
 ### coverage (`npm run coverage`)
 
