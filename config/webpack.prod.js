@@ -32,7 +32,13 @@ module.exports = webpackMerge(commonConfig, {
 		// Generate the html output, injecting the bundles into a template
 		new htmlWebpackPlugin({
 			template: './src/index.html'
-		})
-	]
+		}),
 
+		// Set the environment to production
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    })
+	]
 });
