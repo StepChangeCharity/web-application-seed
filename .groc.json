@@ -1,0 +1,4 @@
+{
+	"glob": ["config/**/*.js", "README.md"],
+	"out": "documentation"
+}

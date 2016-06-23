@@ -10,8 +10,9 @@
     "start": "npm run webpackserver -- --config config/webpack.dev.js",
     "start:prod": "npm run webpackserver -- --config config/webpack.prod.js --port 9090",
     "clean:build": "rimraf -- dist",
-    "clean:automation": "rimraf -- automation",
-    "clean:dependencies": "npm uninstall rimraf && rimraf -- node_modules typings",
+		"clean:automation": "rimraf -- automation",
+		"clean:documentation": "rimraf -- documentation",
+		"clean:dependencies": "npm uninstall rimraf && rimraf -- node_modules typings",
     "clean:install": "npm run clean:dependencies && npm install",
     "pretest": "rimraf coverage",
     "test": "karma start config/karma.conf.js",
@@ -28,7 +29,8 @@
     "httpserver": "http-server -c-1",
     "serve:release": "npm run httpserver -- -p 9999 ./dist",    
     "serve:automation": "npm run httpserver -- -o -p 9998 ./automation",
-    "serve:coverage": "npm run httpserver -- -o -p 9997 ./coverage"    
+    "serve:coverage": "npm run httpserver -- -o -p 9997 ./coverage",    
+		"document": "npm run clean:documentation && groc"        
   },
   "repository": {
     "type": "git",
@@ -52,6 +54,7 @@
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "groc": "^0.8.0",
     "html-webpack-plugin": "^2.21.0",
     "http-server": "^0.9.0",
     "istanbul-instrumenter-loader": "^0.2.0",
