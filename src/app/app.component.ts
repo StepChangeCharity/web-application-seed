@@ -12,5 +12,5 @@ import { Component } from '@angular/core';
 	styles: [require('./app.scss')]
 })
 export class AppComponent {
-	public name: string = 'My First Angular 2 App1';
+	public name: string = 'My First Angular 2 App';
 }
