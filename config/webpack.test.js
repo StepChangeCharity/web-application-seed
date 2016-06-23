@@ -1,28 +1,81 @@
 // ## Test configuration for the webpack build process
 var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
-var commonConfig = require('./webpack.common.js');
+var webpackNotifierPlugin = require('webpack-notifier');
 var helpers = require('./helpers');
 
-// Merge this config with the common config when exporting
-module.exports = webpackMerge(commonConfig, {
+module.exports = function () {
 
-	// Output the content of the build
-	output: {
+	var config = {};
 
-		// to the 'Dist' folder
-		path: helpers.root('dist'),
+	// resolve these file types
+	config.resolve = {
+		extensions: ['', '.ts', '.js', '.scss'],
+	};
 
-		// using this file name format
-		filename: '[name].bundle.js'
-	},
-	plugins: [
+	config.module = {
 
-		// Set the environment to testing
+		// lint typescript first
+		preLoaders: [
+			{
+				test: /\.ts$/,
+				loader: "tslint"
+			}
+		],
+
+		loaders: [
+			{
+				// load typescript but exclude the 'e2e' files
+				test: /\.ts$/,
+				loader: 'ts',
+				exclude: [/\.(e2e)\.ts$/]
+			},
+
+			// support for .scss files
+			// use 'null' loader in test mode (https://github.com/webpack/null-loader)
+			// all css in src/style will be bundled in an external css file
+			{
+				test: /\.scss$/,
+				loader: 'null'
+			},
+		],
+
+		postLoaders: [
+			{
+				// provide test coverage reporting, excluding test scripts
+				test: /\.ts/,
+				loader: 'istanbul-instrumenter-loader',
+				exclude: [/\.spec\.ts/, /\.e2e\.ts/]
+			}
+		]
+	};
+
+	// needed for remap-instanbul
+	config.ts = {
+		compilerOptions: {
+			sourceMap: false,
+			sourceRoot: helpers.root('src', 'app'),
+			inlineSourceMap: true
+		}
+	};
+
+	config.plugins = [
+
+		// set the environment to testing
 		new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("testing")
-      }
-    })
+			"process.env": {
+				NODE_ENV: JSON.stringify("testing")
+			}
+		}),
+
+		// enable system tray notifications
+		new webpackNotifierPlugin({
+			title: 'Web Application Seed',
+			excludeWarnings: true,
+			alwaysNotify: true,
+			contentImage: helpers.root('config/notifier.png')
+		})
 	]
-});
+
+	return config;
+
+}();
