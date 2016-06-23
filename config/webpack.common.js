@@ -6,7 +6,14 @@ var copyWebpackPlugin = require('copy-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 var webpackNotifierPlugin = require('webpack-notifier');
 
+const METADATA = {
+	title: 'StepChange Angular 2 Application Seed'
+}
+
 module.exports = {
+
+	// Static metadata for index.html
+	metadata: METADATA,
 
 	// Work on these folders
 	entry: {
