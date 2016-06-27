@@ -27,7 +27,7 @@ module.exports = function (config) {
       { pattern: './karma-test-shim.js', watched: false }
     ],
 
-    // preprocess matching files before serving them to the browser
+    // preprocess matching files before serving them to the browser(s)
     preprocessors: {
       './karma-test-shim.js': ['coverage', 'webpack', 'sourcemap']
     },
