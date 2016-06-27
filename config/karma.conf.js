@@ -22,7 +22,7 @@ module.exports = function (config) {
         'karma-teamcity-reporter'
     ],
 
-    // list of files / patterns to load in the browsers
+    // list of files / patterns to load in the browser
     files: [
       { pattern: './karma-test-shim.js', watched: false }
     ],
