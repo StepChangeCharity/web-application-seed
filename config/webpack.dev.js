@@ -6,8 +6,19 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
 
+// Webpack constants
+const ENV = 'development';
+const METADATA = webpackMerge(commonConfig.metadata, {
+	host: 'localhost',
+  	port: 3000,
+	ENV: ENV,
+});
+
 // Merge this config with the common config when exporting
 module.exports = webpackMerge(commonConfig, {
+
+	// Merged metadata from webpack.common.js
+	metadata: METADATA,
 
 	// Output the content of the build
 	output: {
@@ -34,8 +45,14 @@ module.exports = webpackMerge(commonConfig, {
 		// Set the environment to development
 		new webpack.DefinePlugin({
 			"process.env": {
-				NODE_ENV: JSON.stringify("development")
+				NODE_ENV: JSON.stringify(METADATA.ENV),
 			}
-		})
-	]
+		}),
+	],
+
+	// Set options for dev server
+	devServer: {
+    	port: METADATA.port,
+    	host: METADATA.host,
+  	}
 });

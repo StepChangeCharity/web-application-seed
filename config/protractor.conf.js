@@ -9,18 +9,17 @@ exports.config = {
 	specs: ['../src/app/**/*.e2e.ts'],
 	directConnect: true,
 
-   onPrepare: function() {
-      jasmine.getEnv().addReporter(
-        new jasmine2HtmlReporter({
-          savePath: helpers.root('./automation/'),
-					screenshotsFolder: 'images',
-					takeScreenshots: true,
-					fixedScreenshotName: true,
-					filePrefix: 'index'
-        })
-      );
-   },
-
+	onPrepare: function () {
+		jasmine.getEnv().addReporter(
+			new jasmine2HtmlReporter({
+				savePath: helpers.root('./automation/'),
+				screenshotsFolder: 'images',
+				takeScreenshots: true,
+				fixedScreenshotName: true,
+				filePrefix: 'index'
+			})
+		);
+	},
 
 	/**
 	* Angular 2 configuration

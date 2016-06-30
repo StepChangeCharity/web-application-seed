@@ -6,7 +6,18 @@ var htmlWebpackPlugin = require('html-webpack-plugin');  //  Allows webpack to i
 var commonConfig = require('./webpack.common.js');  //  The common configuration used across builds
 var helpers = require('./helpers');  //  Include any shared helper functions
 
+// Webpack constants
+const ENV = 'production';
+const METADATA = webpackMerge(commonConfig.metadata, {
+	host: 'localhost',
+  	port: 8080,
+	ENV: ENV,
+});
+
 module.exports = webpackMerge(commonConfig, {
+
+	// Merged metadata from webpack.common.js
+	metadata: METADATA,
 
 	//  Output the content of the build to the 'Dist' folder including a hash per chunk in the file name to bust the cache
 	output: {
@@ -37,8 +48,14 @@ module.exports = webpackMerge(commonConfig, {
 		// Set the environment to production
 		new webpack.DefinePlugin({
 			"process.env": {
-				NODE_ENV: JSON.stringify("production")
+				NODE_ENV: JSON.stringify(METADATA.ENV),
 			}
 		})
-	]
+	],
+
+	// Set options for dev server
+	devServer: {
+    	port: METADATA.port,
+    	host: METADATA.host,
+  	}
 });

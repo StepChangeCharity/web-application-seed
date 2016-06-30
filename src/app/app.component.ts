@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 		<div class="container">
 			<img src='./assets/images/logo.jpg' />
 			<h1 class="title">{{name}}</h1>
-			<h2 class="sub-title">Subtitle</h2>
+			<h2 class="sub-title">I feel the need, the need for seed!</h2>
 			<p>I'm making a change</p>
 		</div>
 	`,

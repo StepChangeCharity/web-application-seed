@@ -3,6 +3,12 @@ var webpack = require('webpack');
 var webpackNotifierPlugin = require('webpack-notifier');
 var helpers = require('./helpers');
 
+// Webpack constants
+const ENV = 'testing';
+const METADATA = {
+	ENV: ENV,
+};
+
 module.exports = function () {
 
 	var config = {};
@@ -63,7 +69,7 @@ module.exports = function () {
 		// set the environment to testing
 		new webpack.DefinePlugin({
 			"process.env": {
-				NODE_ENV: JSON.stringify("testing")
+				NODE_ENV: JSON.stringify(METADATA.ENV)
 			}
 		}),
 

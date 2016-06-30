@@ -6,7 +6,14 @@ var copyWebpackPlugin = require('copy-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
 var webpackNotifierPlugin = require('webpack-notifier');
 
+const METADATA = {
+	title: 'StepChange Angular 2 Application Seed'
+}
+
 module.exports = {
+
+	// Static metadata for index.html
+	metadata: METADATA,
 
 	// Work on these folders
 	entry: {
@@ -59,8 +66,16 @@ module.exports = {
 		// Copy static assets to the output folder
 		new copyWebpackPlugin([
 			{
-				from: './src/assets',
-				to: './assets'
+				from: helpers.root('src/assets'),
+				to: helpers.root('dist/assets')
+			}
+		]),
+
+		// Copy favicon to root of the output folder
+		new copyWebpackPlugin([
+			{
+				from: helpers.root('src/favicon.ico'),
+				to: helpers.root('dist/')
 			}
 		]),
 
