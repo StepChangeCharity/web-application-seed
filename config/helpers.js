@@ -1,6 +1,7 @@
 // ## Helpers methods for the webpack build process
 
 var path = require('path');
+var proc = require('process');
 
 // Get the path to the root of the project
 const ROOT = path.resolve(__dirname, '..');
@@ -11,4 +12,30 @@ function root(args) {
     return path.join.apply(path, [ROOT].concat(args));
 }
 
-exports.root = root;
+function hasShouldFlattenArgument() {
+    let flatten = false;
+
+    process.argv.forEach(function(item) {
+        if (item == 'flatten') {
+            flatten = true;
+        }
+    });
+
+    return flatten;
+}
+
+function flatten(filename) {
+    let shouldFlatten = hasShouldFlattenArgument();
+
+    if (shouldFlatten) {
+        return '';
+    } else {
+        return root(filename);
+    }
+}
+
+module.exports = {
+    root: root,
+    flatten: flatten
+};
+

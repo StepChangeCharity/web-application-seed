@@ -8,7 +8,7 @@
     "postinstall": "typings install",
     "webpackserver": "webpack-dev-server --progress --colors --watch --inline",
     "start": "npm run webpackserver -- --config config/webpack.dev.js",
-    "start:prod": "npm run webpackserver -- --config config/webpack.prod.js --port 9090",
+    "start:prod": "npm run webpackserver -- --config config/webpack.prod.js --port 9090 flatten",
     "clean:build": "rimraf -- dist",
     "clean:automation": "rimraf -- automation",
     "clean:documentation": "rimraf -- documentation",

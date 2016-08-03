@@ -45,7 +45,7 @@ module.exports = webpackMerge(commonConfig, {
 		new copyWebpackPlugin([
 			{
 				from: helpers.root('src/app.config.json'),
-				to: helpers.root('dist/')
+				to: helpers.flatten('dist/')
 			}
 		]),
 
@@ -53,7 +53,7 @@ module.exports = webpackMerge(commonConfig, {
 		new copyWebpackPlugin([
 			{
 				from: helpers.root('src/favicon.ico'),
-				to: helpers.root('dist/')
+				to: helpers.flatten('dist/')
 			}
 		]),
 
