@@ -13,7 +13,7 @@ function root(args) {
 }
 
 function hasShouldFlattenArgument() {
-    let flatten = false;
+    var flatten = false;
 
     process.argv.forEach(function(item) {
         if (item == 'flatten') {
@@ -25,7 +25,7 @@ function hasShouldFlattenArgument() {
 }
 
 function flatten(filename) {
-    let shouldFlatten = hasShouldFlattenArgument();
+    var shouldFlatten = hasShouldFlattenArgument();
 
     if (shouldFlatten) {
         return '';
