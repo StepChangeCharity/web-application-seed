@@ -11,16 +11,31 @@ export class AppConfig {
 	 * URL where logs are recorded (in this instance, it's GetSentry)
 	 * To view errors, see: https://app.getsentry.com/stepchange/angular2-component/ 
 	 */
-	public LOGGING_ENDPOINT: string = 'https://4eb93e8b2b5e4a499a88749fe9f535b5@app.getsentry.com/83794';
+	public LOGGING_ENDPOINT: string = '';
 
 	/**
-	 * Environment application is deplopyed to. 
+	 * Environment application is deployed to (development | staging | production, etc). 
 	 */
-	public ENVIRONMENT: string = 'production';
+	public ENVIRONMENT: string = '';
 
 	/**
 	 * Version of the deployed application.
 	 */
-	public APP_VERSION: string = 'build-1234';
+	public APP_VERSION: string = '';
+
+	/**
+	 * Flags whether the configured environment is production.
+	 */
+	public isProduction(): boolean {
+		return this.ENVIRONMENT === 'production';
+	}
+
+	/**
+	 * Flags whether the configured environment is development.
+	 */
+	public isDevelopment(): boolean {
+		return this.ENVIRONMENT === 'development' || this.ENVIRONMENT === 'dev';
+	}
 
 }
+

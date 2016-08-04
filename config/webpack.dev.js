@@ -2,6 +2,7 @@
 
 var webpackMerge = require('webpack-merge');
 var webpack = require('webpack');
+var copyWebpackPlugin = require('copy-webpack-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');
@@ -41,6 +42,23 @@ module.exports = webpackMerge(commonConfig, {
 		new htmlWebpackPlugin({
 			template: './src/index.html'
 		}),
+
+		// Copy favicon to root of the output folder
+		new copyWebpackPlugin([
+			{
+				from: helpers.root('src/favicon.ico'),
+				to: ''
+			}
+		]),
+
+		// Copy static app configuration
+		new copyWebpackPlugin([
+			{
+				from: helpers.root('src/app.config.json'),
+				to: ''
+			}
+		]),
+
 
 		// Set the environment to development
 		new webpack.DefinePlugin({
