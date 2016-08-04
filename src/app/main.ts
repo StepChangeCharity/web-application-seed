@@ -17,8 +17,8 @@ bootstrap(AppComponent, [
 	AppConfig,
 	HTTP_PROVIDERS,
 	provide(APP_INITIALIZER, {
-		useFactory: (cfgService: ConfigurationService) => () => {
-			return cfgService.loadConfiguration('./app.config.json');
+		useFactory: (configurationService: ConfigurationService) => () => {
+			return configurationService.loadConfiguration('./app.config.json');
 		},
 		deps: [ConfigurationService, HTTP_PROVIDERS],
 		multi: true

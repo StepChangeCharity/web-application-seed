@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { OnInit, Component } from '@angular/core';
 import { ConfigurationService } from './configuration-service';
 
 @Component({
@@ -12,13 +12,18 @@ import { ConfigurationService } from './configuration-service';
 	`,
 	styles: [require('./app.scss')]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	public name: string = 'My First Angular 2 App';
 	public version: string = '';
 
 	constructor(
 		private _configurationService: ConfigurationService
 	) {
+	}
+
+	ngOnInit(): void {
 		this.version = this._configurationService.currentConfiguration.APP_VERSION;
 	}
+
 }
+

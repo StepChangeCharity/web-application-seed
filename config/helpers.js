@@ -12,27 +12,17 @@ function root(args) {
     return path.join.apply(path, [ROOT].concat(args));
 }
 
-function hasShouldFlattenArgument() {
-    var flatten = false;
 
+function flatten(filename) {    
     process.argv.forEach(function(item) {
         if (item == 'flatten') {
-            flatten = true;
+            return '';
         }
     });
 
-    return flatten;
+    return root(filename);
 }
 
-function flatten(filename) {
-    var shouldFlatten = hasShouldFlattenArgument();
-
-    if (shouldFlatten) {
-        return '';
-    } else {
-        return root(filename);
-    }
-}
 
 module.exports = {
     root: root,
