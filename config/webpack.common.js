@@ -71,14 +71,6 @@ module.exports = {
 			}
 		]),
 
-		// Copy favicon to root of the output folder
-		new copyWebpackPlugin([
-			{
-				from: helpers.root('src/favicon.ico'),
-				to: helpers.root('dist/')
-			}
-		]),
-
 		// Setup system tray notifications
 		new webpackNotifierPlugin({
 			title: 'Web Application Seed',
