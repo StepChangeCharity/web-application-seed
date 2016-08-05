@@ -23,7 +23,7 @@ function flatten(filename) {
     });
 
     if (flattened == null)
-        // no flatten instruction ..
+    
         flattened = root(filename);
 
     return flattened;
