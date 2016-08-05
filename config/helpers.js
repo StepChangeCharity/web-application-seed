@@ -14,7 +14,7 @@ function root(args) {
 
 
 function flatten(filename) {
-    let flattened = null;
+    var flattened = null;
 
     process.argv.forEach(function(item) {
         if (item == 'flatten') {
