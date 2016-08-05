@@ -13,14 +13,20 @@ function root(args) {
 }
 
 
-function flatten(filename) {    
+function flatten(filename) {
+    var flattened = null;
+
     process.argv.forEach(function(item) {
         if (item == 'flatten') {
-            return '';
+            flattened = '';
         }
     });
 
-    return root(filename);
+    if (flattened == null)
+    
+        flattened = root(filename);
+
+    return flattened;
 }
 
 
