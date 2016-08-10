@@ -36,6 +36,7 @@ module.exports = {
 		preLoaders: [
 			{
 				test: /\.ts$/,
+				exclude: /node_modules/,
 				loader: "tslint"
 			}
 		],
@@ -68,14 +69,6 @@ module.exports = {
 			{
 				from: helpers.root('src/assets'),
 				to: helpers.root('dist/assets')
-			}
-		]),
-
-		// Copy favicon to root of the output folder
-		new copyWebpackPlugin([
-			{
-				from: helpers.root('src/favicon.ico'),
-				to: helpers.root('dist/')
 			}
 		]),
 

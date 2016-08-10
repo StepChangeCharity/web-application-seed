@@ -2,6 +2,7 @@
 
 var webpackMerge = require('webpack-merge');  //  Used to merge in the common config
 var webpack = require('webpack');  //  Include the build tool
+var copyWebpackPlugin = require('copy-webpack-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');  //  Allows webpack to inject paths to bundles
 var commonConfig = require('./webpack.common.js');  //  The common configuration used across builds
 var helpers = require('./helpers');  //  Include any shared helper functions
@@ -39,6 +40,22 @@ module.exports = webpackMerge(commonConfig, {
 			compress: {screw_ie8: true, warnings: false},
 			comments: false
 		}),
+
+		// Copy static app configuration
+		new copyWebpackPlugin([
+			{
+				from: helpers.root('src/app.config.json'),
+				to: helpers.flatten('dist/')
+			}
+		]),
+
+		// Copy favicon to root of the output folder
+		new copyWebpackPlugin([
+			{
+				from: helpers.root('src/favicon.ico'),
+				to: helpers.flatten('dist/')
+			}
+		]),
 
 		// Generate the html output, injecting the bundles into a template
 		new htmlWebpackPlugin({

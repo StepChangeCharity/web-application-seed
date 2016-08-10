@@ -5,7 +5,7 @@ A starter project using Angular 2, TypeScript, Webpack, Jasmine, Karma & Protrac
 ## Quick Start
 
 >Warning: Make sure you're using the latest version of Node.js and NPM
-
+ 
 ```bash
 # Clone the repository to your machine
 git clone http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_git/WebApplicationSeed MyApplication
