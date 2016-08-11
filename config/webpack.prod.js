@@ -41,22 +41,6 @@ module.exports = webpackMerge(commonConfig, {
 			comments: false
 		}),
 
-		// Copy static app configuration
-		new copyWebpackPlugin([
-			{
-				from: helpers.root('src/app.config.json'),
-				to: helpers.flatten('dist/')
-			}
-		]),
-
-		// Copy favicon to root of the output folder
-		new copyWebpackPlugin([
-			{
-				from: helpers.root('src/favicon.ico'),
-				to: helpers.flatten('dist/')
-			}
-		]),
-
 		// Generate the html output, injecting the bundles into a template
 		new htmlWebpackPlugin({
 			template: './src/index.html'
