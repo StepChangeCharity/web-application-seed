@@ -43,23 +43,6 @@ module.exports = webpackMerge(commonConfig, {
 			template: './src/index.html'
 		}),
 
-		// Copy favicon to root of the output folder
-		new copyWebpackPlugin([
-			{
-				from: helpers.root('src/favicon.ico'),
-				to: ''
-			}
-		]),
-
-		// Copy static app configuration
-		new copyWebpackPlugin([
-			{
-				from: helpers.root('src/app.config.json'),
-				to: ''
-			}
-		]),
-
-
 		// Set the environment to development
 		new webpack.DefinePlugin({
 			"process.env": {
