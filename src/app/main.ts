@@ -3,7 +3,7 @@ import { HTTP_PROVIDERS, Http, XHRBackend }                            from '@an
 import { bootstrap }                                                   from '@angular/platform-browser-dynamic';
 import { LoggingService, LoggingErrorHandler }                         from '../services';
 import { AppComponent }                                                from './features/app/app.component';
-import { AppConfig }                                                   from './app-config';
+import { AppConfig }                                                   from './core/models/app-config';
 import { ConfigurationService }                                        from './configuration-service';
 import '../theme/styles.scss';
 
