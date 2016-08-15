@@ -2,7 +2,7 @@ import { it, describe, expect, beforeEach, inject, beforeEachProviders } from '@
 import { provide, Injector, ReflectiveInjector } from '@angular/core';
 import { HTTP_PROVIDERS, XHRBackend, Http, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from './features/app/app.component';
 import { ConfigurationService } from './configuration-service';
 
 

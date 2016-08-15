@@ -2,7 +2,7 @@ import { enableProdMode, provide, APP_INITIALIZER, ExceptionHandler }  from '@an
 import { HTTP_PROVIDERS, Http, XHRBackend }                            from '@angular/http';
 import { bootstrap }                                                   from '@angular/platform-browser-dynamic';
 import { LoggingService, LoggingErrorHandler }                         from '../services';
-import { AppComponent }                                                from './app.component';
+import { AppComponent }                                                from './features/app/app.component';
 import { AppConfig }                                                   from './app-config';
 import { ConfigurationService }                                        from './configuration-service';
 import '../theme/styles.scss';
