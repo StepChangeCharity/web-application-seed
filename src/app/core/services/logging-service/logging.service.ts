@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppConfig } from '../../app/core/models/app-config';
+import { AppConfig } from '../../models/app-config';
 import Raven = require('raven-js');
 
 // FJ Notes / TODO:

@@ -1,15 +1,12 @@
-import { it, describe, expect, beforeEach, inject, beforeEachProviders } from '@angular/core/testing';
-import { provide, Injector, ReflectiveInjector } from '@angular/core';
+import { it, describe, expect, beforeEach } from '@angular/core/testing';
+import { provide, ReflectiveInjector } from '@angular/core';
 import { HTTP_PROVIDERS, XHRBackend, Http, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-import { AppComponent } from './features/app/app.component';
 import { ConfigurationService } from './configuration-service';
-
 
 describe('configurationService', () => {
 	let injector, mockBackend, xhr, httpService;
 	let configurationService: ConfigurationService;
-	let appComponent: AppComponent;
 
 	beforeEach(() => {
 		injector = ReflectiveInjector.resolveAndCreate([

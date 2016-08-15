@@ -1,10 +1,10 @@
 import { enableProdMode, provide, APP_INITIALIZER, ExceptionHandler }  from '@angular/core';
 import { HTTP_PROVIDERS, Http, XHRBackend }                            from '@angular/http';
 import { bootstrap }                                                   from '@angular/platform-browser-dynamic';
-import { LoggingService, LoggingErrorHandler }                         from '../services';
+import { LoggingService, LoggingErrorHandler }                         from './core/services/logging-service';
 import { AppComponent }                                                from './features/app/app.component';
 import { AppConfig }                                                   from './core/models/app-config';
-import { ConfigurationService }                                        from './configuration-service';
+import { ConfigurationService }                                        from './core/services/configuration-service';
 import '../theme/styles.scss';
 
 if (process.env.NODE_ENV === 'production') {

@@ -24,7 +24,6 @@ module.exports = function () {
 		preLoaders: [
 			{
 				test: /\.ts$/,
-				exclude: /node_modules/,
 				loader: "tslint"
 			}
 		],
@@ -60,7 +59,7 @@ module.exports = function () {
 	config.ts = {
 		compilerOptions: {
 			sourceMap: false,
-			sourceRoot: helpers.root('src'),
+			sourceRoot: helpers.root('src/app'),
 			inlineSourceMap: true
 		}
 	};

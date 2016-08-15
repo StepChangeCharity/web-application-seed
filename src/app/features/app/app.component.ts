@@ -1,5 +1,5 @@
 import { OnInit, Component }    from '@angular/core';
-import { ConfigurationService } from '../../configuration-service';
+import { ConfigurationService } from '../../core/services/configuration-service';
 
 @Component({
 	selector: 'fcc-app',
