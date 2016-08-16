@@ -1,4 +1,3 @@
-import { it, describe, expect, beforeEach } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { ConfigurationService } from '../../core/services/configuration-service';
 import { AppConfig } from '../../core/models/app-config';

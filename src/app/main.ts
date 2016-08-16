@@ -1,32 +1,9 @@
-import { enableProdMode, provide, APP_INITIALIZER, ExceptionHandler }  from '@angular/core';
-import { HTTP_PROVIDERS, Http, XHRBackend }                            from '@angular/http';
-import { bootstrap }                                                   from '@angular/platform-browser-dynamic';
-import { LoggingService, LoggingErrorHandler }                         from './core/services/logging-service';
-import { AppComponent }                                                from './features/app/app.component';
-import { AppConfig }                                                   from './core/models/app-config';
-import { ConfigurationService }                                        from './core/services/configuration-service';
-import '../theme/styles.scss';
+// The browser platform with a compiler
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-if (process.env.NODE_ENV === 'production') {
-	// "enableProdMode" _has_ to be called before bootstrapping the application
-	// ... so no choice but to do it as part of the build. 
-	enableProdMode();
-}
+// The app module
+import { AppModule } from './app.module';
 
-bootstrap(
-	AppComponent, [
-		ConfigurationService,
-		AppConfig,
-		LoggingService,
-		HTTP_PROVIDERS,
-		provide( ExceptionHandler, {useClass: LoggingErrorHandler} ),
-		provide(APP_INITIALIZER, {
-			useFactory: (configurationService: ConfigurationService) => () => {
-				return configurationService.loadConfiguration('./app.config.json');
-			},
-			deps: [ConfigurationService, HTTP_PROVIDERS],
-			multi: true
-		})
-	]
-);
+// Compile and launch the module
+platformBrowserDynamic().bootstrapModule(AppModule);
 
