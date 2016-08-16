@@ -1,11 +1,16 @@
-import { NgModule, enableProdMode, provide, APP_INITIALIZER, ExceptionHandler }  from '@angular/core';
-import { HTTP_PROVIDERS, Http, XHRBackend }                                      from '@angular/http';
-import { BrowserModule }                                                         from '@angular/platform-browser';
-import { bootstrap }                                                             from '@angular/platform-browser-dynamic';
-import { LoggingService, LoggingErrorHandler }                                   from '../services';
-import { AppComponent }                                                          from './app.component';
-import { AppConfig }                                                             from './app-config';
-import { ConfigurationService }                                                  from './configuration-service';
+import { NgModule, enableProdMode, provide, APP_INITIALIZER, ExceptionHandler }		from '@angular/core';
+import { HTTP_PROVIDERS, Http, XHRBackend }																				from '@angular/http';
+import { BrowserModule }																													from '@angular/platform-browser';
+import { bootstrap }																															from '@angular/platform-browser-dynamic';
+
+import { provideStore }																														from '@ngrx/store';
+
+import { LoggingService, LoggingErrorHandler }																		from './core/services/logging-service';
+import { AppComponent }																														from './features/app/app.component';
+import { AppConfig }																															from './core/models/app-config';
+import { ConfigurationService }																										from './core/services/configuration-service';
+import reducers																																		from './core/store/reducers';
+import actions																																		from './core/store/actions';
 import '../theme/styles.scss';
 
 if (process.env.NODE_ENV === 'production') {
@@ -29,6 +34,8 @@ if (process.env.NODE_ENV === 'production') {
 		AppConfig,
 		ConfigurationService,
 		LoggingService,
+		provideStore(reducers),
+		actions,
 		HTTP_PROVIDERS,
 		provide( ExceptionHandler, {useClass: LoggingErrorHandler} ),
 		provide(APP_INITIALIZER, {

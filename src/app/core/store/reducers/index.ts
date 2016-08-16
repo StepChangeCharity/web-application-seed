@@ -13,12 +13,3 @@ export interface AppState {
 export default compose(storeLogger(), combineReducers)({
 	counter: counterReducer
 });
-
-export function getCounterState() {
-	return (state$: Observable<AppState>) => state$
-		.select(s => s.counter);
-}
-
-export function counter() {
-	return compose(fromCounter.counter(), getCounterState());
-}

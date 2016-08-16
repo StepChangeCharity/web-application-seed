@@ -19,13 +19,8 @@ export default function (state = initialState, action: Action): CounterState {
 		case CounterActions.DECREMENT:
 			return Object.assign({}, state, { counter: state.counter - 1 });
 		case CounterActions.RESET:
-			return Object.assign({}, state, { counter: 0 });			
+			return Object.assign({}, state, { counter: 0 });
 		default:
 			return state;
 	}
 };
-
-export function counter() {
-	return (state$: Observable<CounterState>) => state$
-		.select(s => s.counter);
-}
