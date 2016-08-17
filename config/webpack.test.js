@@ -41,7 +41,8 @@ module.exports = function () {
 			// all css in src/style will be bundled in an external css file
 			{
 				test: /\.scss$/,
-				loader: 'null'
+				include: helpers.root('src/app'),
+				loader: 'raw!postcss!sass'
 			},
 		],
 
