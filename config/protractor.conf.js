@@ -9,6 +9,13 @@ exports.config = {
 	specs: ['../src/app/**/*.e2e.ts'],
 	directConnect: true,
 
+	capabilities: {
+		'browserName': 'chrome',
+		chromeOptions: {
+			args: ['--no-sandbox']
+		}
+	},	
+
 	onPrepare: function () {
 		jasmine.getEnv().addReporter(
 			new jasmine2HtmlReporter({
