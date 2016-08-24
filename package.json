@@ -26,8 +26,9 @@
     "e2e:dev": "npm run e2e -- --baseUrl=\"http://localhost:3000\"",
     "e2e:prod": "npm run e2e -- --baseUrl=\"http://localhost:9090\"",
     "e2e:release": "npm run e2e -- --baseUrl=\"http://localhost:9999\"",
-    "prebuildserver:e2e": "npm run build",
-    "buildserver:e2e": "node ./config/e2e-kill-processes.js",
+    "prebuildserver:e2e": "npm run build & forever start --fifo config/serve-release.js --debug --verbose",
+    "buildserver:e2e": "npm run e2e:release",
+    "postbuildserver:e2e": "forever stop --fifo config/serve-release.js",
     "prebuild": "npm run clean:build",
     "build": "webpack --config config/webpack.prod.js",
     "httpserver": "http-server -c-1",
@@ -59,13 +60,14 @@
     "raven-js": "^3.3.0",
     "reflect-metadata": "^0.1.3",
     "rxjs": "5.0.0-beta.6",
-    "zone.js": "^0.6.12"
+    "zone.js": "0.6.12"
   },
   "devDependencies": {
     "codelyzer": "0.0.23",
     "copy-webpack-plugin": "^3.0.1",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "forever": "^0.15.2",
     "groc": "^0.8.0",
     "html-webpack-plugin": "^2.21.0",
     "http-server": "^0.9.0",
