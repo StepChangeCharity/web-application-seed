@@ -17,7 +17,7 @@ module.exports = function (config) {
         'karma-coverage',
         'karma-webpack',
         'karma-sourcemap-loader',
-        'karma-phantomjs-launcher',
+        'karma-chrome-launcher',
         'karma-mocha-reporter',
         'karma-teamcity-reporter'
     ],
@@ -72,7 +72,7 @@ module.exports = function (config) {
     autoWatch: false,
 
     // start these browsers
-    browsers: ['PhantomJS'], // you can also use Chrome
+    browsers: ['Chrome'],
 
     // Continuous Integration mode, if true, Karma captures browsers, runs the tests and exits
     singleRun: true
