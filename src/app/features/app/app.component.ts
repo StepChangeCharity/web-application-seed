@@ -15,7 +15,7 @@ import { CounterActions }				from '../../core/store/actions';
 			<h1 class="title">{{name}} - version {{version}}</h1>
 			<h2 class="sub-title">I feel the need, the need for seed!</h2>
 			<div class="encapsulate">
-				<h3 class="sub-title">NGRX Sample</h3>
+				<h3 class="sub-title">NGRX Sample: Seed Count</h3>
 				<p>Counter: {{ counter$ | async }}</p>
 				<button type="button" (click)="increase()">Increase</button>
 				<button type="button" (click)="decrease()">Decrease</button>

@@ -3,12 +3,11 @@ import { HTTP_PROVIDERS, Http, XHRBackend }																				from '@angular/ht
 import { BrowserModule }																													from '@angular/platform-browser';
 import { bootstrap }																															from '@angular/platform-browser-dynamic';
 
-import { provideStore }																														from '@ngrx/store';
-
 import { LoggingService, LoggingErrorHandler }																		from './core/services/logging-service';
 import { AppComponent }																														from './features/app/app.component';
 import { AppConfig }																															from './core/models/app-config';
 import { ConfigurationService }																										from './core/services/configuration-service';
+import { provideHotStore }																												from './core/bootstrap/hmr';
 import reducers																																		from './core/store/reducers';
 import actions																																		from './core/store/actions';
 import '../theme/styles.scss';
@@ -22,7 +21,8 @@ if (process.env.NODE_ENV === 'production') {
 
 @NgModule({
 	imports: [
-		BrowserModule
+		BrowserModule,
+		provideHotStore(reducers),
 	],
 	declarations: [
 		AppComponent
@@ -34,7 +34,6 @@ if (process.env.NODE_ENV === 'production') {
 		AppConfig,
 		ConfigurationService,
 		LoggingService,
-		provideStore(reducers),
 		actions,
 		HTTP_PROVIDERS,
 		provide( ExceptionHandler, {useClass: LoggingErrorHandler} ),
