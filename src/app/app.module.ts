@@ -8,7 +8,7 @@ import { bootstrap }																							from '@angular/platform-browser-dynam
 // Application imports
 import { appRoutes }																							from './features';
 import { LoggingService, LoggingErrorHandler }										from './core/services/logging-service';
-import { AppComponent, HomeComponent, CounterComponent }													from './features/';
+import { AppComponent, HomeComponent, CounterComponent }					from './features/';
 import { AppConfig }																							from './core/models/app-config';
 import { ConfigurationService }																		from './core/services/configuration-service';
 import { provideHotStore }																				from './core/bootstrap/hmr';
