@@ -2,8 +2,12 @@
   "globalDependencies": {
     "angular-protractor": "registry:dt/angular-protractor#1.5.0+20160425143459",
     "core-js": "registry:dt/core-js#0.0.0+20160317120654",
+    "chai": "registry:dt/chai#3.4.0+20160317120654",
+    "chai-as-promised": "registry:dt/chai-as-promised#0.0.0+20160317120654",
+    "cucumber": "registry:dt/cucumber#0.0.0+20160620145537",
     "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
     "node": "registry:dt/node#4.0.0+20160509154515",
+    "promises-a-plus": "registry:dt/promises-a-plus#0.0.0+20160317120654",
     "selenium-webdriver": "registry:dt/selenium-webdriver#2.44.0+20160317120654"
   }
 }
