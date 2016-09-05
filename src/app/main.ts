@@ -15,5 +15,5 @@ function main() {
 if ((<any>module).hot) {
 	hotModuleReplacement(main, module);
 } else {
-	document.addEventListener('DOMContentLoaded', () => main);
+	document.addEventListener('DOMContentLoaded', () => main() );
 }
