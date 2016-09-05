@@ -1,36 +1,23 @@
-import { provide }	from '@angular/core';
-import { async, inject, addProviders, TestBed }	from '@angular/core/testing';
-import { HTTP_PROVIDERS }	from '@angular/http';
+import { inject, TestBed } from '@angular/core/testing';
+import { HttpModule }	from '@angular/http';
 
-import { provideStore } from '@ngrx/store';
-
-import { AppComponent } from '../app';
+// Load the implementations that should be tested
+import { AppComponent } from './app.component';
 import { ConfigurationService } from '../../core/services/configuration-service';
-import { AppConfig } from '../../core/models/app-config';
-import reducers from '../../core/store/reducers';
-import actions from '../../core/store/actions';
 
 describe('AppComponent', () => {
+	// provide our implementations or mocks to the dependency injector
+	beforeEach(() => TestBed.configureTestingModule({
+		imports: [
+			HttpModule
+		],
+		providers: [
+			AppComponent,
+			ConfigurationService
+		]}));
 
-	beforeEach(() => {
-		TestBed.configureTestingModule({
-			declarations: [AppComponent],
-			providers: [
-				ConfigurationService,
-				HTTP_PROVIDERS,
-				provideStore(reducers),
-				actions
-			]
-		});
-
-		async(() => {
-			TestBed.compileComponents();
-		});
-	});
-
-	it('has a name property', function () {
-		let fixture = TestBed.createComponent(AppComponent);
-		expect(fixture.componentInstance.name).toBe('My First Angular 2 App');
-	});
+	it('has a name property', inject([ AppComponent ], (app) => {
+		expect(app.name).toEqual('My First Angular 2 App');
+	}));
 
 });
