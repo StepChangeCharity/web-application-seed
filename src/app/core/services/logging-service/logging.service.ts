@@ -72,7 +72,7 @@ export class LoggingService {
 	 * Shows a dialog where the user can enter additional information about an error, to help diagnosis.
 	 */
 	public askForFeedback(): void {
-		Raven['showReportDialog']();
+		// Raven['showReportDialog']();
 	}
 
 
