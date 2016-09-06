@@ -22,6 +22,7 @@ module.exports = function (config) {
         'karma-webpack',
         'karma-sourcemap-loader',
         'karma-phantomjs-launcher',
+        'karma-chrome-launcher',
         'karma-mocha-reporter',
         'karma-teamcity-reporter'
     ],

@@ -1,4 +1,4 @@
-import { Injectable, ExceptionHandler } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { LoggingService } from './';
 
 @Injectable()
