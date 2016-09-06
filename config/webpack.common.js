@@ -4,7 +4,6 @@ var webpack = require('webpack');
 var helpers = require('./helpers');
 var copyWebpackPlugin = require('copy-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
-var webpackNotifierPlugin = require('webpack-notifier');
 
 const METADATA = {
 	title: 'StepChange Angular 2 Application Seed'
@@ -81,14 +80,6 @@ module.exports = {
 				to: ''
 			}					
 		]),
-
-		// Setup system tray notifications
-		new webpackNotifierPlugin({
-			title: 'Web Application Seed',
-			excludeWarnings: true,
-			alwaysNotify: true,
-			contentImage: helpers.root('config/notifier.png')
-		}),
 
 		// Bundle and output the css to
 		new extractTextPlugin('[name].bundle.[chunkhash].css')
