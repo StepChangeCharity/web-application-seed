@@ -24,7 +24,6 @@ module.exports = function () {
 		preLoaders: [
 			{
 				test: /\.ts$/,
-				exclude: /node_modules/,
 				loader: "tslint"
 			}
 		],
@@ -42,7 +41,8 @@ module.exports = function () {
 			// all css in src/style will be bundled in an external css file
 			{
 				test: /\.scss$/,
-				loader: 'null'
+				include: helpers.root('src/app'),
+				loader: 'raw!postcss!sass'
 			},
 		],
 
@@ -60,7 +60,7 @@ module.exports = function () {
 	config.ts = {
 		compilerOptions: {
 			sourceMap: false,
-			sourceRoot: helpers.root('src'),
+			sourceRoot: helpers.root('src/app'),
 			inlineSourceMap: true
 		}
 	};

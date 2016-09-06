@@ -1,26 +1,34 @@
-import { NgModule, enableProdMode, provide, APP_INITIALIZER, ExceptionHandler }  from '@angular/core';
-import { HTTP_PROVIDERS, Http, XHRBackend }                                      from '@angular/http';
-import { BrowserModule }                                                         from '@angular/platform-browser';
-import { bootstrap }                                                             from '@angular/platform-browser-dynamic';
-import { LoggingService, LoggingErrorHandler }                                   from '../services';
-import { AppComponent }                                                          from './app.component';
-import { AppConfig }                                                             from './app-config';
-import { ConfigurationService }                                                  from './configuration-service';
+// Angular imports
+import { NgModule, provide, APP_INITIALIZER, ExceptionHandler }		from '@angular/core';
+import { BrowserModule }																					from '@angular/platform-browser';
+import { HttpModule }																							from '@angular/http';
+import { CommonModule }																						from '@angular/common';
+import { FormsModule }																						from '@angular/forms';
+import { bootstrap }																							from '@angular/platform-browser-dynamic';
+// Application imports
+import { appRoutes }																							from './features';
+import { LoggingService, LoggingErrorHandler }										from './core/services/logging-service';
+import { AppComponent, HomeComponent, CounterComponent }					from './features/';
+import { AppConfig }																							from './core/models/app-config';
+import { ConfigurationService }																		from './core/services/configuration-service';
+import { provideHotStore }																				from './core/bootstrap/hmr';
+import reducers																										from './core/store/reducers';
+import actions																										from './core/store/actions';
 import '../theme/styles.scss';
-
-if (process.env.NODE_ENV === 'production') {
-	// "enableProdMode" _has_ to be called before bootstrapping the application
-	// ... so no choice but to do it as part of the build.
-	enableProdMode();
-}
-
 
 @NgModule({
 	imports: [
-		BrowserModule
+		BrowserModule,
+		HttpModule,
+		CommonModule,
+		FormsModule,
+		provideHotStore(reducers),
+		appRoutes
 	],
 	declarations: [
-		AppComponent
+		AppComponent,
+		HomeComponent,
+		CounterComponent
 	],
 	bootstrap: [
 		AppComponent
@@ -29,17 +37,15 @@ if (process.env.NODE_ENV === 'production') {
 		AppConfig,
 		ConfigurationService,
 		LoggingService,
-		HTTP_PROVIDERS,
-		provide( ExceptionHandler, {useClass: LoggingErrorHandler} ),
+		actions,
+		provide(ExceptionHandler, { useClass: LoggingErrorHandler }),
 		provide(APP_INITIALIZER, {
 			useFactory: (configurationService: ConfigurationService) => () => {
 				return configurationService.loadConfiguration('./app.config.json');
 			},
-			deps: [ConfigurationService, HTTP_PROVIDERS],
+			deps: [ConfigurationService, HttpModule],
 			multi: true
 		})
 	]
 })
-export class AppModule {
-
-}
+export class AppModule { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AppConfig } from '../../app/app-config';
+import { AppConfig } from '../../models/app-config';
 import Raven = require('raven-js');
 
 // FJ Notes / TODO:
@@ -72,7 +72,7 @@ export class LoggingService {
 	 * Shows a dialog where the user can enter additional information about an error, to help diagnosis.
 	 */
 	public askForFeedback(): void {
-		Raven['showReportDialog']();
+		Raven['showReportDialog']({});
 	}
 
 
