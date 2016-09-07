@@ -256,8 +256,5 @@ Deletes the `documentation` folder that is used for generated documentation and 
 
 **zone.js** - a polyfill for the [Zone specification](https://gist.github.com/mhevery/63fdcdf7c65886051d55) currently before the TC39 committee that determines standards for the JavaScript language. Developers should be able to pick a preferred version of zone.js to use (within a compatible version range) without waiting for Angular updates.
 
-### Development Dependencies
-
-> TODO
 
 
