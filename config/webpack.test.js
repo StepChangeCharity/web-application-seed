@@ -1,6 +1,5 @@
 // ## Test configuration for the webpack build process
 var webpack = require('webpack');
-var webpackNotifierPlugin = require('webpack-notifier');
 var helpers = require('./helpers');
 
 // Webpack constants
@@ -72,14 +71,6 @@ module.exports = function () {
 			"process.env": {
 				NODE_ENV: JSON.stringify(METADATA.ENV)
 			}
-		}),
-
-		// enable system tray notifications
-		new webpackNotifierPlugin({
-			title: 'Web Application Seed',
-			excludeWarnings: true,
-			alwaysNotify: true,
-			contentImage: helpers.root('config/notifier.png')
 		})
 	]
 
