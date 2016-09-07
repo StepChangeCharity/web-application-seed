@@ -1,10 +1,9 @@
 // Angular imports
-import { NgModule, provide, APP_INITIALIZER, ExceptionHandler }		from '@angular/core';
+import { NgModule, APP_INITIALIZER, ErrorHandler }		            from '@angular/core';
 import { BrowserModule }																					from '@angular/platform-browser';
 import { HttpModule }																							from '@angular/http';
 import { CommonModule }																						from '@angular/common';
 import { FormsModule }																						from '@angular/forms';
-import { bootstrap }																							from '@angular/platform-browser-dynamic';
 // Application imports
 import { appRoutes }																							from './features';
 import { LoggingService, LoggingErrorHandler }										from './core/services/logging-service';
@@ -38,14 +37,19 @@ import '../theme/styles.scss';
 		ConfigurationService,
 		LoggingService,
 		actions,
-		provide(ExceptionHandler, { useClass: LoggingErrorHandler }),
-		provide(APP_INITIALIZER, {
+		{
+			provide: ErrorHandler,
+			useClass: LoggingErrorHandler
+		},
+		{
+			provide: APP_INITIALIZER,
 			useFactory: (configurationService: ConfigurationService) => () => {
 				return configurationService.loadConfiguration('./app.config.json');
 			},
 			deps: [ConfigurationService, HttpModule],
 			multi: true
-		})
+		}
 	]
 })
+
 export class AppModule { }
