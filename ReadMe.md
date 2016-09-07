@@ -8,7 +8,7 @@ A starter project using Angular 2, TypeScript, Webpack, Jasmine, Karma & Protrac
  
 ```bash
 # Clone the repository to your machine
-git clone http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_git/WebApplicationSeed MyApplication
+git clone https://github.com/StepChangeCharity/web-application-seed MyApplication
 
 # Change the working directory to your application
 cd MyApplication
