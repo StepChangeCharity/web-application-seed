@@ -11,10 +11,10 @@ import { CounterActions }	from '../../core/store/actions';
 	selector: 'fcc-counter',
 	template: `
 		<h3 class="sub-title">NGRX Sample: Seed Count</h3>
-		<p>Counter: {{ counter$ | async }}</p>
-		<button type="button" (click)="increase()">Increase</button>
-		<button type="button" (click)="decrease()">Decrease</button>
-		<button type="button" (click)="reset()">Reset</button>
+		<div>Counter: <span id="count">{{ counter$ | async }}</span></div>
+		<button id="increase" type="button" (click)="increase()">Increase</button>
+		<button id="decrease" type="button" (click)="decrease()">Decrease</button>
+		<button id="reset" type="button" (click)="reset()">Reset</button>
 	`,
 	styles: [require('./counter.scss')],
 	changeDetection: ChangeDetectionStrategy.OnPush
