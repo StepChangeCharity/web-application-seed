@@ -11,6 +11,7 @@ import { ConfigurationService }	from '../../core/services/configuration-service'
 			<ul>
 				<li><a href="#" [routerLink]="['/home']">Home</a></li>
 				<li><a href="#" [routerLink]="['/counter']">Counter</a></li>
+				<li><a href="#" [routerLink]="['/list']">List</a></li>
 			</ul>
 			<router-outlet></router-outlet>
 		</div>

@@ -16,7 +16,8 @@
     "clean:dependencies": "npm uninstall rimraf && rimraf -- node_modules typings",
     "clean:install": "npm run clean:dependencies && npm install",
     "pretest": "npm run clean:coverage",
-    "test": "karma start config/karma.conf.js",
+    "test": "node ./config/karma-kill-node.js",
+    "test:run": "karma start config/karma.conf.js",
     "test:debug": "karma start config/karma.conf.js --single-run=false",
     "posttest": "npm run remaphtml && npm run remapteamcity",
     "remaphtml": "remap-istanbul -i coverage/json/coverage-final.json -o coverage -t html",
@@ -34,7 +35,8 @@
     "serve:release": "ws -p 9999 -d ./dist -s index.html",
     "serve:automation": "npm run httpserver -- -o -p 9998 ./automation",
     "serve:coverage": "npm run httpserver -- -o -p 9997 ./coverage",
-    "document": "npm run clean:documentation && groc"
+    "document": "npm run clean:documentation && groc",
+    "jsonserver": "json-server --watch db.json --port 3004"
   },
   "repository": {
     "type": "git",

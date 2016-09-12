@@ -1,7 +1,7 @@
 // Angular imports
 import { Routes, RouterModule }	from '@angular/router';
 // Application imports
-import { HomeComponent, CounterComponent } from '../';
+import { HomeComponent, CounterComponent, ListComponent } from '../';
 
 const routes: Routes = [
 	{
@@ -16,6 +16,10 @@ const routes: Routes = [
 	{
 		path: 'counter',
 		component: CounterComponent
+	},
+	{
+		path: 'list',
+		component: ListComponent
 	}
 ];
 

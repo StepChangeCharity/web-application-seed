@@ -7,7 +7,8 @@ import { FormsModule }																						from '@angular/forms';
 // Application imports
 import { appRoutes }																							from './features';
 import { LoggingService, LoggingErrorHandler }										from './core/services/logging-service';
-import { AppComponent, HomeComponent, CounterComponent }					from './features/';
+import { EmployeeService } from './features/list/employee-service';
+import { AppComponent, HomeComponent, CounterComponent, ListComponent }					from './features/';
 import { AppConfig }																							from './core/models/app-config';
 import { ConfigurationService }																		from './core/services/configuration-service';
 import { provideHotStore }																				from './core/bootstrap/hmr';
@@ -27,7 +28,8 @@ import '../theme/styles.scss';
 	declarations: [
 		AppComponent,
 		HomeComponent,
-		CounterComponent
+		CounterComponent,
+		ListComponent
 	],
 	bootstrap: [
 		AppComponent
@@ -36,6 +38,7 @@ import '../theme/styles.scss';
 		AppConfig,
 		ConfigurationService,
 		LoggingService,
+		EmployeeService,
 		actions,
 		{
 			provide: ErrorHandler,
