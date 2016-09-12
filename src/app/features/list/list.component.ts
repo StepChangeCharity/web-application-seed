@@ -53,8 +53,6 @@ export class ListComponent {
 	getListItems() {
 		this.employeeService.loadEmployees().subscribe(res => {
 			this._employees = res;
-		}, (err: any) => {
-			debugger;
 		});
 	}
 }
