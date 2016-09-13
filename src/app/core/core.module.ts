@@ -23,6 +23,7 @@ export function provideCore(configPath: string): Array<any> {
 	return [
 		AppConfig,
 		ConfigurationService,
+		actions,
 		LoggingService, {
 			provide: ErrorHandler,
 			useClass: LoggingErrorHandler
@@ -37,7 +38,11 @@ export function provideCore(configPath: string): Array<any> {
 	];
 }
 
-@NgModule({})
+@NgModule({
+	imports: [
+		provideHotStore(reducers)
+	]
+})
 export class CoreModule {
 	static provideCore(configPath: string): ModuleWithProviders {
 		return {
