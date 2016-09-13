@@ -4,8 +4,8 @@ import { OnInit, Component, ChangeDetectionStrategy }	from '@angular/core';
 import { Store, Action }	from '@ngrx/store';
 import { Observable }			from 'rxjs/Observable';
 // Application imports
-import { AppState }				from '../../core/store/reducers';
-import { CounterActions }	from '../../core/store/actions';
+import { AppState }				from '../../core/core.module';
+import { CounterActions }	from '../../core/core.module';
 
 @Component({
 	selector: 'fcc-counter',

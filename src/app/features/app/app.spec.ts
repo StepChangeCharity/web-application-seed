@@ -3,7 +3,7 @@ import { HttpModule }	from '@angular/http';
 
 // Load the implementations that should be tested
 import { AppComponent } from './app.component';
-import { ConfigurationService } from '../../core/services/configuration-service';
+import { ConfigurationService }	from '../../core/core.module';
 
 describe('AppComponent', () => {
 	// provide our implementations or mocks to the dependency injector

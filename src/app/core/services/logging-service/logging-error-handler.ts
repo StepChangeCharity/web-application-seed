@@ -20,5 +20,10 @@ export class LoggingErrorHandler {
 		this._logger.captureError(err);
 	}
 
+	handleError(error: any): void {
+		console.error(error);
+		this._logger.captureError(error);
+	}
+
 }
 
