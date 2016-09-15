@@ -4,8 +4,9 @@ import { BrowserModule }																					from '@angular/platform-browser';
 import { HttpModule }																							from '@angular/http';
 import { CommonModule }																						from '@angular/common';
 import { FormsModule }																						from '@angular/forms';
+
 // Application Core imports
-import { CoreModule }                                             from './core/core.module';
+import { CoreModule }                                             from './core';
 
 // Application imports
 import { appRoutes }																							from './features';

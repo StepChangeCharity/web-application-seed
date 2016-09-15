@@ -14,11 +14,6 @@ import { provideHotStore }			from './bootstrap/hmr';
 import reducers									from './store/reducers';
 import actions									from './store/actions';
 
-// Core exports
-export { AppState }             from './store/reducers/index';
-export { ConfigurationService } from './services/configuration-service';
-export { CounterActions	}       from './store/actions';
-
 export function provideCore(configPath: string): Array<any> {
 	return [
 		AppConfig,

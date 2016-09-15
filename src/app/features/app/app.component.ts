@@ -1,10 +1,10 @@
 // Angular imports
 import { OnInit, Component, ChangeDetectionStrategy }	from '@angular/core';
+
 // Core Application imports
-import { ConfigurationService } from '../../core/core.module';
+import { ConfigurationService } from '../../core';
 
 // Application imports
-
 
 @Component({
 	selector: 'fcc-app',
