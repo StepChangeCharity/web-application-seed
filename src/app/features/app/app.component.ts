@@ -1,5 +1,5 @@
 // Angular imports
-import { OnInit, Component, ChangeDetectionStrategy }	from '@angular/core';
+import { OnInit, Component }	from '@angular/core';
 // Application imports
 import { ConfigurationService }	from '../../core/services/configuration-service';
 
@@ -15,8 +15,7 @@ import { ConfigurationService }	from '../../core/services/configuration-service'
 			<router-outlet></router-outlet>
 		</div>
 	`,
-	styles: [require('./app.scss')],
-	changeDetection: ChangeDetectionStrategy.OnPush
+	styles: [require('./app.scss')]
 })
 export class AppComponent implements OnInit {
 	public name: string = 'My First Angular 2 App';
