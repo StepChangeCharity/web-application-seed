@@ -2,7 +2,7 @@ const exec = require('child_process').exec;
 const kill = require('tree-kill');
 
 const server = exec('npm run jsonserver');
-const tests = exec('npm run test:run');
+const tests = exec('npm run e2e:run');
 
 tests.stdout.on('data', function(data) {
 	console.log(data);

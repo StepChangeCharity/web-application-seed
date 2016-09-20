@@ -1,5 +1,5 @@
 // // Angular imports
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import { EmployeeService } from './employee-service';
@@ -7,8 +7,8 @@ import { EmployeeService } from './employee-service';
 @Component({
 	selector: 'fcc-list',
  	template: `
- 		<h3 class="sub-title">json-server demo: List</h3>
-		<button type="button" (click)="getListItems()">Get List</button>
+ 		<h3 class="sub-title">json-server demo: Test</h3>
+		<button id="listbutton" (click)="getListItems()">Get List</button>
 		<div>
 			<table>
 				<tr>
@@ -22,39 +22,35 @@ import { EmployeeService } from './employee-service';
 						Job Title
 					</th>
 				</tr>
-				<tr *ngFor="let employee of _employees">
-					<td>
+				<tr id="employeetable" *ngFor="let employee of _employees">
+					<td id="employeeid{{employee.id}}">
 						{{employee.id}}
 					</td>
-					<td>
+					<td id="employeename{{employee.id}}">
 						{{employee.name}}
 					</td>
-					<td>
+					<td id="employeejobtitle{{employee.id}}">
 						{{employee.jobTitle}}
 					</td>
 				</tr>
 			</table>
 		</div>
 	`,
- 	styles: [require('./list.scss')],
-	changeDetection: ChangeDetectionStrategy.Default
+ 	styles: [require('./list.scss')]
 })
 export class ListComponent {
-
-	_employees: Employee[];
+	
+	@Input() _employees: Array<Employee>;
 
 	constructor(
-		private http: Http,
-		private employeeService: EmployeeService
+		private employeeService: EmployeeService,
+		private ref: ChangeDetectorRef
 	) {
-		
 	}
 
 	getListItems() {
-		this.employeeService.loadEmployees().subscribe(res => {
-			this._employees = res;
-		});
-	}
+		this.employeeService.loadEmployees().then(res => this._employees = res);
+	};
 }
 
 export class Employee {
