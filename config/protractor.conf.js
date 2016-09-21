@@ -17,10 +17,10 @@ exports.config = {
 	cucumberOpts: {
 		require: [
 			helpers.root('src/app/**/*.steps.ts'),
-			helpers.root('src/app/hooks.ts'),
-			helpers.root('src/app/reporter.js')
+			helpers.root('src/app/reporter.ts'),
+			helpers.root('src/app/screenshot.ts')
 		],
-		format: 'json'
+		format: 'pretty'
 	},
 
 	capabilities: {
