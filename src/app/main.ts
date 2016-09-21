@@ -1,8 +1,13 @@
+// Angular imports
 import { enableProdMode }					from '@angular/core';
 import { platformBrowserDynamic }	from '@angular/platform-browser-dynamic';
 
+// Application Core imports
+import { hotModuleReplacement }		from './core';
+
+// Application imports
 import { AppModule }							from './app.module';
-import { hotModuleReplacement }		from './core/bootstrap/hmr';
+
 
 if (process.env.NODE_ENV === 'production') {
 	enableProdMode();
