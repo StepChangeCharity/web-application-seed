@@ -16,7 +16,9 @@ exports.config = {
 
 	cucumberOpts: {
 		require: [
-			helpers.root('src/app/**/*.steps.ts')
+			helpers.root('src/app/**/*.steps.ts'),
+			helpers.root('src/app/reporter.ts'),
+			helpers.root('src/app/screenshot.ts')
 		],
 		format: 'pretty'
 	},
