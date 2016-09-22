@@ -9,6 +9,10 @@ import Callback = cucumber.CallbackStepDefinition;
 class ListSteps {
 
 	private listPageObject: ListPageObject = new ListPageObject();
+	private expectedTableContents = [
+		'1 Joe Bloggs Project Manager',
+		'2 John Doe Developer'
+	];
 
 	@given(/^I navigate to the list feature$/)
 	public navigateToList(callback: Callback): void {
@@ -28,7 +32,7 @@ class ListSteps {
 	};
 
 	private assertListItems(callback: Callback): void {
-		expect(this.listPageObject.getList()).to.become('What?').and.notify(callback)
+		expect(this.listPageObject.getListData()).to.become(this.expectedTableContents).and.notify(callback);
 	};
 }
 

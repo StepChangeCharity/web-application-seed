@@ -11,7 +11,7 @@ import { EmployeeService } from './features/list/employee-service';
 import { AppComponent, HomeComponent, CounterComponent, ListComponent }					from './features/';
 import { AppConfig }																							from './core/models/app-config';
 import { ConfigurationService }																		from './core/services/configuration-service';
-// import { provideHotStore }																				from './core/bootstrap/hmr';
+import { provideHotStore }																				from './core/bootstrap/hmr';
 import reducers																										from './core/store/reducers';
 import actions																										from './core/store/actions';
 import '../theme/styles.scss';
@@ -23,7 +23,7 @@ import '../theme/styles.scss';
 		CommonModule,
 		FormsModule,
 		ReactiveFormsModule,
-		// provideHotStore(reducers),
+		provideHotStore(reducers),
 		appRoutes
 	],
 	declarations: [

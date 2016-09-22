@@ -49,8 +49,9 @@ export class ListComponent {
 	}
 
 	getListItems() {
-		this.employeeService.loadEmployees().then(res => this._employees = res);
-	};
+		this.employeeService.loadEmployees().then(res =>
+			this._employees = res
+		)};
 }
 
 export class Employee {
