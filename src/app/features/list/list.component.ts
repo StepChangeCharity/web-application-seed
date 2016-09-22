@@ -1,5 +1,5 @@
 // // Angular imports
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import { EmployeeService } from './employee-service';
@@ -10,7 +10,7 @@ import { EmployeeService } from './employee-service';
  		<h3 class="sub-title">json-server demo: Test</h3>
 		<button id="listbutton" (click)="getListItems()">Get List</button>
 		<div>
-			<table>
+			<table *ngIf="_employees.length > 0">
 				<tr>
 					<th>
 						ID
@@ -38,14 +38,16 @@ import { EmployeeService } from './employee-service';
 	`,
  	styles: [require('./list.scss')]
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
 	
-	@Input() _employees: Array<Employee>;
+	_employees: Array<Employee>;
 
 	constructor(
-		private employeeService: EmployeeService,
-		private ref: ChangeDetectorRef
-	) {
+		private employeeService: EmployeeService
+	) { }
+
+	ngOnInit() {
+		this._employees = new Array<Employee>();
 	}
 
 	getListItems() {
