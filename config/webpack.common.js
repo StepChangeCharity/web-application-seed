@@ -4,7 +4,6 @@ var webpack = require('webpack');
 var helpers = require('./helpers');
 var copyWebpackPlugin = require('copy-webpack-plugin');
 var extractTextPlugin = require('extract-text-webpack-plugin');
-var webpackNotifierPlugin = require('webpack-notifier');
 
 const METADATA = {
 	title: 'StepChange Angular 2 Application Seed'
@@ -36,6 +35,7 @@ module.exports = {
 		preLoaders: [
 			{
 				test: /\.ts$/,
+				exclude: /node_modules/,
 				loader: "tslint"
 			}
 		],
@@ -62,30 +62,24 @@ module.exports = {
 		]
 	},
 	plugins: [
-
-		// Copy static assets to the output folder
+		
 		new copyWebpackPlugin([
+			// Copy static assets to the output folder
 			{
-				from: helpers.root('src/assets'),
-				to: helpers.root('dist/assets')
-			}
-		]),
-
-		// Copy favicon to root of the output folder
-		new copyWebpackPlugin([
+				from: 'src/assets',
+				to: 'assets'
+			},
+			// Copy favicon to root of the output folder
 			{
-				from: helpers.root('src/favicon.ico'),
-				to: helpers.root('dist/')
-			}
+				from: 'src/favicon.ico',
+				to: ''
+			},
+			// Copy app configuration
+			{
+				from: 'src/app.config.json',
+				to: ''
+			}					
 		]),
-
-		// Setup system tray notifications
-		new webpackNotifierPlugin({
-			title: 'Web Application Seed',
-			excludeWarnings: true,
-			alwaysNotify: true,
-			contentImage: helpers.root('config/notifier.png')
-		}),
 
 		// Bundle and output the css to
 		new extractTextPlugin('[name].bundle.[chunkhash].css')

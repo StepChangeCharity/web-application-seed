@@ -1,6 +1,5 @@
 // ## Test configuration for the webpack build process
 var webpack = require('webpack');
-var webpackNotifierPlugin = require('webpack-notifier');
 var helpers = require('./helpers');
 
 // Webpack constants
@@ -41,7 +40,8 @@ module.exports = function () {
 			// all css in src/style will be bundled in an external css file
 			{
 				test: /\.scss$/,
-				loader: 'null'
+				include: helpers.root('src/app'),
+				loader: 'raw!postcss!sass'
 			},
 		],
 
@@ -59,7 +59,7 @@ module.exports = function () {
 	config.ts = {
 		compilerOptions: {
 			sourceMap: false,
-			sourceRoot: helpers.root('src', 'app'),
+			sourceRoot: helpers.root('src/app'),
 			inlineSourceMap: true
 		}
 	};
@@ -71,14 +71,6 @@ module.exports = function () {
 			"process.env": {
 				NODE_ENV: JSON.stringify(METADATA.ENV)
 			}
-		}),
-
-		// enable system tray notifications
-		new webpackNotifierPlugin({
-			title: 'Web Application Seed',
-			excludeWarnings: true,
-			alwaysNotify: true,
-			contentImage: helpers.root('config/notifier.png')
 		})
 	]
 

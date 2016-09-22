@@ -2,6 +2,7 @@
 
 var webpackMerge = require('webpack-merge');  //  Used to merge in the common config
 var webpack = require('webpack');  //  Include the build tool
+var copyWebpackPlugin = require('copy-webpack-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');  //  Allows webpack to inject paths to bundles
 var commonConfig = require('./webpack.common.js');  //  The common configuration used across builds
 var helpers = require('./helpers');  //  Include any shared helper functions

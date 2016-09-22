@@ -5,10 +5,10 @@ A starter project using Angular 2, TypeScript, Webpack, Jasmine, Karma & Protrac
 ## Quick Start
 
 >Warning: Make sure you're using the latest version of Node.js and NPM
-
+ 
 ```bash
 # Clone the repository to your machine
-git clone http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_git/WebApplicationSeed MyApplication
+git clone https://github.com/StepChangeCharity/web-application-seed MyApplication
 
 # Change the working directory to your application
 cd MyApplication
@@ -57,19 +57,19 @@ What you need to run the application:
 
 ## Creating The Initial Application
 
-Create a new repository in TFS using the adminstration [dashboard](http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_admin/_versioncontrol).
+Create a new repository in source control.
 
-For example creating a new `Portal` repository would result in a location such as http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_git/Portal
+For example creating a new `Portal` repository would result in a location such as https://github.com/StepChangeCharity/Portal
 
 ```bash
 # Clone the seed repository to your machine using the name of the new repository from above at the end
-git clone http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_git/WebApplicationSeed Portal
+git clone -b master --single-branch https://github.com/StepChangeCharity/web-application-seed Portal
 
 # Change the working directory to the new application folder
 cd Portal
 
 # Set the remote origin to the origin of the new repository
-git remote set-url origin http://fcctfs.cccs.co.uk:8080/tfs/TfsSandpit/FrontEndApplications/_git/Portal
+git remote set-url origin https://github.com/StepChangeCharity/Portal
 
 # Verify this change (you should see the url you just set)
 git remote -v
@@ -256,6 +256,5 @@ Deletes the `documentation` folder that is used for generated documentation and 
 
 **zone.js** - a polyfill for the [Zone specification](https://gist.github.com/mhevery/63fdcdf7c65886051d55) currently before the TC39 committee that determines standards for the JavaScript language. Developers should be able to pick a preferred version of zone.js to use (within a compatible version range) without waiting for Angular updates.
 
-### Development Dependencies
 
-> TODO
+

@@ -2,6 +2,7 @@
 
 var webpackMerge = require('webpack-merge');
 var webpack = require('webpack');
+var copyWebpackPlugin = require('copy-webpack-plugin');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var commonConfig = require('./webpack.common.js');
 var helpers = require('./helpers');

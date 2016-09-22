@@ -1,0 +1,6 @@
+{
+	"LOGGING_ENDPOINT": "https://4eb93e8b2b5e4a499a88749fe9f535b5@app.getsentry.com/83794",
+	"ENVIRONMENT": "production",
+	"APP_VERSION": "1.2.34567"
+}
+

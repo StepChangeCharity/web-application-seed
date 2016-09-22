@@ -1,10 +1,14 @@
-// ## Configuratioin settings for karma tests
+// ## Configuration settings for karma tests
 
 // Get webpack build config specific to karma tests
 var webpackConfig = require('./webpack.test');
 
 module.exports = function (config) {
   var _config = {
+
+    captureTimeout: 60000,
+    browserDisconnectTimeout: 60000, 
+    browserNoActivityTimeout: 60000, 
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -17,6 +21,7 @@ module.exports = function (config) {
         'karma-coverage',
         'karma-webpack',
         'karma-sourcemap-loader',
+        'karma-phantomjs-launcher',
         'karma-chrome-launcher',
         'karma-mocha-reporter',
         'karma-teamcity-reporter'
@@ -72,12 +77,11 @@ module.exports = function (config) {
     autoWatch: false,
 
     // start these browsers
-    browsers: ['Chrome'], // you can also use Chrome
+    browsers: ['PhantomJS'],
 
     // Continuous Integration mode, if true, Karma captures browsers, runs the tests and exits
     singleRun: true
   };
 
   config.set(_config);
-
 };
