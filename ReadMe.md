@@ -63,7 +63,7 @@ For example creating a new `Portal` repository would result in a location such a
 
 ```bash
 # Clone the seed repository to your machine using the name of the new repository from above at the end
-git clone https://github.com/StepChangeCharity/web-application-seed Portal
+git clone -b master --single-branch https://github.com/StepChangeCharity/web-application-seed Portal
 
 # Change the working directory to the new application folder
 cd Portal
