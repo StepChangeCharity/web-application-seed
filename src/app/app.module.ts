@@ -1,7 +1,8 @@
 // Angular imports
-import { NgModule, APP_INITIALIZER, ErrorHandler }		            from '@angular/core';
+import { NgModule, APP_INITIALIZER, ErrorHandler, Provider }		            from '@angular/core';
 import { BrowserModule }																					from '@angular/platform-browser';
-import { HttpModule, Http, ConnectionBackend }																							from '@angular/http';
+import { HttpModule, Http, ConnectionBackend, RequestOptions, XHRBackend }																							from '@angular/http';
+import { CustomHttp } from './features/list/custom-http';
 import { CommonModule }																						from '@angular/common';
 import { FormsModule, ReactiveFormsModule }																						from '@angular/forms';
 // Application imports
@@ -52,6 +53,13 @@ import '../theme/styles.scss';
 			},
 			deps: [ConfigurationService, HttpModule],
 			multi: true
+		},
+		{
+			provide: CustomHttp,
+			useFactory: (backend: ConnectionBackend, defaultOptions: RequestOptions) => {
+				return new CustomHttp(backend, defaultOptions);
+			},
+			deps: [XHRBackend, RequestOptions]
 		}
 	]
 })

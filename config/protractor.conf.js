@@ -5,7 +5,7 @@ var helpers = require('./helpers');
 exports.config = {
 	useAllAngular2AppRoots: true,
 	directConnect: true,
-	baseUrl: 'http://localhost:8080/',
+	baseUrl: 'http://localhost:3000/',
 
 	framework: 'custom',
 	frameworkPath: require.resolve('protractor-cucumber-framework'),
@@ -30,5 +30,6 @@ exports.config = {
 
 	onPrepare: function () {
 		browser.ignoreSynchronization = true;
+		global.e2eRunning = true;
 	}
 }

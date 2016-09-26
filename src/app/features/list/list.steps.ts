@@ -1,7 +1,7 @@
 let chai = require('chai').use(require('chai-as-promised'));
 let expect: Chai.ExpectStatic = chai.expect;
 
-import { binding, given, then, when } from "cucumber-tsflow";
+import { binding, given, then, when, before } from "cucumber-tsflow";
 import { ListPageObject }					from "./list.page";
 import Callback = cucumber.CallbackStepDefinition;
 
@@ -13,6 +13,11 @@ class ListSteps {
 		'1 Joe Bloggs Project Manager',
 		'2 John Doe Developer'
 	];
+
+	// @before()
+	// public mockBackend(callback: Callback) {
+
+	// }
 
 	@given(/^I navigate to the list feature$/)
 	public navigateToList(callback: Callback): void {
